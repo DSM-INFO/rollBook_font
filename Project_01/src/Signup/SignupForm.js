@@ -8,10 +8,12 @@ const SignupForm = ({submitForm}) => {
 
     return (
         <div className="container">
+
             <div className="app-wrapper">
                 <div>
                     <h2 className="title">Sign Up</h2>
                 </div>
+
                 <form className="form-wrapper">
                     <div className="name">
                         <label className="label">Full Name</label>
@@ -43,7 +45,7 @@ const SignupForm = ({submitForm}) => {
                         <label className="label">Grade</label>
                         <input 
                         className="input" 
-                        type="text" 
+                        type="number" 
                         name="Grade" 
                         value={values.Grade}
                         onChange={handleChange}

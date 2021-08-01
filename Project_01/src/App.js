@@ -1,6 +1,7 @@
 import React from 'react'
-import Apps from "./Login/Apps"
+import Apps from "./admin/Apps"
 import Form from './Signup/Form';
+import UApps from './userLogin/UApps';
 
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <div>
       <Apps/>
       <Form/>
+      <UApps/>
     </div>
   )
 }
