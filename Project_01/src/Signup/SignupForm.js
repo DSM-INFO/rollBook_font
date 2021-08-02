@@ -24,7 +24,6 @@ const SignupForm = ({submitForm}) => {
                         value={values.fullname}
                         onChange={handleChange}
                         />
-
                         {errors.FullName && <p className="error">{errors.FullName}</p>}
                     </div>
 
@@ -43,13 +42,15 @@ const SignupForm = ({submitForm}) => {
 
                     <div className="Grade">
                         <label className="label">Grade</label>
-                        <input 
-                        className="input" 
-                        type="number" 
+                        <select 
+                        className="input"
                         name="Grade" 
                         value={values.Grade}
-                        onChange={handleChange}
-                        />
+                        onChange={handleChange}>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
 
                         {errors.Grade && <p className="error">{errors.Grade}</p>}
                     </div>
