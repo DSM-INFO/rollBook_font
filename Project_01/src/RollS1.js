@@ -1,8 +1,5 @@
 import React from 'react'
 
-const name= () =>{
-    
-}
 
 const RollS1 = () => {
     return (

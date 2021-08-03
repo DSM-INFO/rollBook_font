@@ -15,16 +15,17 @@ const SignupForm = ({submitForm}) => {
                 </div>
 
                 <form className="form-wrapper">
-                    <div className="name">
-                        <label className="label">Full Name</label>
+                    <div className="Name">
+                        <label className="label">Name</label>
                         <input 
                         className="input" 
                         type="text" 
-                        name="fullname" 
-                        value={values.fullname}
+                        name="Name" 
+                        placeholder="이름"
+                        value={values.Name}
                         onChange={handleChange}
                         />
-                        {errors.FullName && <p className="error">{errors.FullName}</p>}
+                        {errors.Name && <p className="error">{errors.Name}</p>}
                     </div>
 
                     <div className="ID">
@@ -33,6 +34,7 @@ const SignupForm = ({submitForm}) => {
                         className="input" 
                         type="text" 
                         name="ID" 
+                        placeholder="학년이름(공백없이)"
                         value={values.ID}
                         onChange={handleChange}
                         />
@@ -61,6 +63,7 @@ const SignupForm = ({submitForm}) => {
                         className="input" 
                         type="password"
                         name="PassWord" 
+                        placeholder="비밀번호"
                         value={values.PassWord}
                         onChange={handleChange}
                         />

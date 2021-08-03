@@ -20,13 +20,25 @@ function ULoginForm({Login, error}){
               
                <form className="uForm-group">
                 <div className="ID">
-                    <label htmlFor="ID">ID:</label>
-                    <input className="uInput" type="text" name="ID" id="ID" onChange={e => setDetails({...details, ID: e.target.value})} value={details.ID}/>
+                    <label htmlFor="ID">ID</label>
+                    <input 
+                    className="uInput" 
+                    type="text" 
+                    name="ID" 
+                    id="ID" 
+                    placeholder="학년이름(공백없이)"
+                    onChange={e => setDetails({...details, ID: e.target.value})} value={details.ID}/>
                 </div>
                
                 <div className="password">
-                    <label htmlFor="password">Password:</label>
-                    <input className="uInput" type="password" name="Password" id="password" onChange={e => setDetails({...details, password: e.target.value})} value={details.password}/>
+                    <label htmlFor="password">Password</label>
+                    <input 
+                    className="uInput" 
+                    type="password" 
+                    name="Password" 
+                    id="password" 
+                    placeholder="비밀번호"
+                    onChange={e => setDetails({...details, password: e.target.value})} value={details.password}/>
                 </div>
                 
                 <input className="uBtn" type="submit" value="LOGIN"/>

@@ -4,7 +4,7 @@ import Validation from './Validation';
 const useForm = (submitForm) =>{
 
     const [values, setValues] = useState({
-        fullname:"",
+        Name:"",
         ID:"",
         Grade:"",
     });
@@ -27,7 +27,7 @@ const useForm = (submitForm) =>{
     
     useEffect( () => {
         if(Object.keys(errors).length === 0 &&dataIsCorrect){
-            submitForm(true);
+            submitForm(true)
         }
     }, [errors]);
     
