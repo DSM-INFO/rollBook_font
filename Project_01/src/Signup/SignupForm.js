@@ -3,7 +3,7 @@ import useForm from './useForm';
 
 const SignupForm = ({submitForm}) => {
 
-    const {handleChange, handleFromSubmit, values,errors} = useForm(
+    const {handleChange, handleFormSubmit, values,errors} = useForm(
         submitForm);
 
     return (
@@ -57,22 +57,22 @@ const SignupForm = ({submitForm}) => {
                         {errors.Grade && <p className="error">{errors.Grade}</p>}
                     </div>
 
-                    <div className="PassWord">
-                        <label className="label">PassWord</label>
+                    <div className="Password">
+                        <label className="label">Password</label>
                         <input 
                         className="input" 
                         type="password"
-                        name="PassWord" 
+                        name="Password" 
                         placeholder="비밀번호"
-                        value={values.PassWord}
+                        value={values.Password}
                         onChange={handleChange}
                         />
 
-                        {errors.PassWord && <p className="error">{errors.PassWord}</p>}
+                        {errors.Password && <p className="error">{errors.Password}</p>}
                     </div>
 
                     <div>
-                        <button className="submit" onClick={handleFromSubmit}>Sign up</button>
+                        <button className="submit" onClick={handleFormSubmit}>Sign up</button>
                     </div>
                 </form>
             </div>

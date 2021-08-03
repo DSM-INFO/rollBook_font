@@ -30,7 +30,7 @@
   .ID,
   .Name,
   .Grade,
-  .PassWord{
+  .Password{
     margin: 20px;
     color: #969292;
     font-size: 16px;
