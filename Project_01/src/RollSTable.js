@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const RollS1 = () => {
+const RollsTable = () => {
     return (
         <div className="g1">
             <h2 className="grade1">1학년</h2>
@@ -18,5 +18,5 @@ const RollS1 = () => {
     )
 }
 
-export default RollS1;
+export default RollsTable;
 

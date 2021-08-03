@@ -34,7 +34,7 @@ const SignupForm = ({submitForm}) => {
                         className="input" 
                         type="text" 
                         name="ID" 
-                        placeholder="학년이름(공백없이)"
+                        placeholder="학번"
                         value={values.ID}
                         onChange={handleChange}
                         />

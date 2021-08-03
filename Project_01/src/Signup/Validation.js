@@ -5,15 +5,18 @@ const Validation = (values) => {
         errors.Name = "이름을 입력하세요."
     } 
 
-    if (values.Name.indexOf(" ") != -1) {
+    if (values.Name.indexOf(" ") !== -1) {
         errors.Name = "공백이 있습니다."    
     }
 
     if (!values.ID){
         errors.ID = "ID를 입력하세요."
     } 
+    else if (values.ID.length > 5){
+        errors.ID = "4자 이하로 입력하세요."
+    }
     
-    if (values.ID.indexOf(" ") != -1) {
+    if (values.ID.indexOf(" ") !== -1) {
         errors.ID = "공백이 있습니다."    
     }
 
@@ -25,7 +28,7 @@ const Validation = (values) => {
         errors.Password = "8자 이상 입력 하세요."
     }
 
-    if (values.Password.indexOf(" ") != -1) {
+    if (values.Password.indexOf(" ") !== -1) {
         errors.Password = "공백이 있습니다."    
     }
 
