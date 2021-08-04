@@ -26,7 +26,7 @@ function ULoginForm({Login, error}){
                     type="text" 
                     name="ID" 
                     id="ID" 
-                    placeholder="학년이름(공백없이)"
+                    placeholder="학번"
                     onChange={e => setDetails({...details, ID: e.target.value})} value={details.ID}/>
                 </div>
                
