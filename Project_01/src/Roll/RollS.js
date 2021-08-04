@@ -13,7 +13,7 @@ const RollS = (Submit) => {
 
             <div className="wrapper">
                 <div>
-                    <h2  className="title">출석현황</h2>
+                    <h2  className="titleR">출석현황</h2>
                 </div>
 
                 <form className="btns">
