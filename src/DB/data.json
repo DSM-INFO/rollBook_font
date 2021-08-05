@@ -1,0 +1,136 @@
+{
+  "Member": [
+    {
+      "uId": 1,
+      "id": "1110이서유",
+      "fullName": "이서유",
+      "grade": 1,
+      "password": "1110",
+      "status": 8
+    },
+    {
+      "uId": 2,
+      "id": "1215정시연",
+      "fullName": "정시연",
+      "grade": 1,
+      "password": "1215",
+      "status": 3
+    },
+    {
+      "uId": 3,
+      "id": "2401고경태",
+      "fullName": "고경태",
+      "grade": 2,
+      "password": "2401",
+      "status": 8
+    },
+    {
+      "uId": 4,
+      "id": "2402이주석",
+      "fullName": "이주석",
+      "grade": 2,
+      "password": "2402",
+      "status": 0
+    },
+    {
+      "uId": 5,
+      "id": "3301이찬명",
+      "fullName": "이찬명",
+      "grade": 3,
+      "password": "3301",
+      "status": 5
+    }
+  ],
+  "Schedule": [
+    {
+      "mon": "6",
+      "day": "12",
+      "plan": "react",
+      "id": 1
+    },
+    {
+      "mon": "8",
+      "day": "4",
+      "plan": "node",
+      "id": 2
+    },
+    {
+      "mon": "8",
+      "day": "18",
+      "plan": "Nest",
+      "id": 5
+    },
+    {
+      "mon": "6",
+      "day": "1",
+      "plan": "Express",
+      "id": 6
+    },
+    {
+      "mon": "11",
+      "day": "2",
+      "plan": "Koa",
+      "id": 7
+    },
+    {
+      "mon": "11",
+      "day": "14",
+      "plan": "Gin",
+      "id": 8
+    },
+    {
+      "mon": "6",
+      "day": "14",
+      "plan": "Echo",
+      "id": 9
+    },
+    {
+      "mon": "1",
+      "day": "9",
+      "plan": "SpringBoot",
+      "id": 10
+    },
+    {
+      "mon": "7",
+      "day": "1",
+      "plan": "Vue",
+      "id": 11
+    },
+    {
+      "mon": "6",
+      "day": "15",
+      "plan": "Expo",
+      "id": 12
+    },
+    {
+      "mon": "2",
+      "day": "9",
+      "plan": "MySQL",
+      "id": 13
+    },
+    {
+      "mon": "12",
+      "day": "27",
+      "plan": "Oracle",
+      "id": 14
+    },
+    {
+      "mon": "2",
+      "day": "26",
+      "plan": "MongoDB",
+      "id": 15
+    },
+    {
+      "mon": "2",
+      "day": "20",
+      "plan": "next",
+      "id": 16
+    },
+    {
+      "mon": "1",
+      "day": "1",
+      "plan": "djslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksddjslajfdlkjfdlsljaldfjlksd",
+      "id": 17
+    }
+  ]
+}

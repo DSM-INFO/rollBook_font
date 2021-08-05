@@ -1,0 +1,71 @@
+.input_area label {
+  color: rgb(164, 215, 254);
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.input_area select {
+  width: 196px;
+  height: 50px;
+  font-size: 20px;
+  border: none;
+  margin: 4px;
+  background-color: white;
+}
+
+.input_area textarea {
+  width: 400px;
+  height: 200px;
+  font-size: 25px;
+}
+
+.inputSaveButton {
+  width: 100px;
+  height: 30px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 20px;
+
+  color: rgb(218, 155, 255);
+  border: none;
+  /* background-color: whitesmoke; */
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.input_area {
+  /* height: 100%; */
+  display: inline-block;
+  margin: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.addWindow {
+  background-color: whitesmoke;
+
+  border: 10px solid;
+  border-image: linear-gradient(
+    to bottom,
+    rgb(151, 232, 254),
+    rgb(218, 155, 255)
+  );
+  border-image-slice: 1;
+  height: 470px;
+  width: 450px;
+  margin-top: 19vh;
+}
+
+.addToCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addWindow h1 {
+  margin: 10px;
+  margin-top: 20px;
+  color: rgb(151, 232, 254);
+}

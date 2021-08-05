@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.blackBackground {
+    color: white;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    background-color: #262626;
+    min-height: 92.3vh;
+}
+* {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+*::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
