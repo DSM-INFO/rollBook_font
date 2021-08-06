@@ -1,18 +1,17 @@
+import axios from "axios";
 import { useState } from "react";
 import "./ShowList.css";
 
-const Plan= ({ plan: p }) => {
+const Plan = ({ plan: p }) => {
     const [plan, setPlan] = useState(p);
 
     const Del = () => {
         if (window.confirm("삭제하시겠습니까?")) {
-            fetch(`http://localhost:4000/Schedule/${plan.id}`, {
-                method: "DELETE",
-            }).then((res) => {
-                if (res.ok) {
+            axios
+                .delete(`http://localhost:4000/Schedule/${plan.id}`)
+                .then((res) => {
                     setPlan({ id: 0 });
-                }
-            });
+                });
         }
     };
 
@@ -35,4 +34,4 @@ const Plan= ({ plan: p }) => {
     );
 };
 
-export default Plan
+export default Plan;

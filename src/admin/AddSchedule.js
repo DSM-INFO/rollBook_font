@@ -1,8 +1,9 @@
+import axios from "axios";
 import React, { useRef, useState } from "react";
 import "../css/index.css";
 import "./AddSchedule.css";
 
-const AddSchedule= () => {
+const AddSchedule = () => {
     const monthList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
     const dayList = [
         1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
@@ -19,7 +20,7 @@ const AddSchedule= () => {
         setPlan("");
     };
 
-    const onSubmit = (e) => {
+    const onSubmit = () => {
         if (!plan) {
             alert("일정을 작성해 주세요");
             return null;
@@ -27,23 +28,27 @@ const AddSchedule= () => {
 
         if (!isLoding) {
             setIsLoding(true);
-            fetch(`http://localhost:4000/Schedule/`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    mon: monRef.current.value,
-                    day: dayRef.current.value,
-                    plan: plan,
-                }),
-            }).then((res) => {
-                if (res.ok) {
+
+            axios
+                .post(`http://localhost:4000/Schedule`, {
+                    title: "titleTest",
+                    content: "contentTest",
+                })
+                .then((res) => {
+                    console.log(`ok1`);
                     alert("생성이 완료되었습니다");
                     setIsLoding(false);
                     resetText();
-                }
-            });
+                    console.log(`ok2`);
+                })
+                .catch((error) => {
+                    console.log(`erorr1`);
+                    alert("erorr");
+                    setIsLoding(false);
+                    resetText();
+                    console.log(`erorr2`);
+                });
+            console.log(`end`);
         }
     };
 
@@ -82,4 +87,4 @@ const AddSchedule= () => {
     );
 };
 
-export default AddSchedule
+export default AddSchedule;
