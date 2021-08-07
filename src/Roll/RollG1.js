@@ -1,25 +1,10 @@
 import React from 'react';
-import RollS from './RollS';
+import "./RollS.css"
 
 const RollG1 = () => {
-    const Return = () =>{
-        
-      }
-   
-    const Submit = () =>{
-
-    }
-
     return (
-        <div className="rollG1">
-            {(onSubmit) ? (
-            <table className="g1">
-                <p>이름</p><p>출석여부</p>
-                <button onClick = {Return}>return</button>
-            </table>):(<RollS Login={Submit}/>
-            )}
-            
-            
+        <div className="g1">
+            <span>이름</span> <span>출석여부</span>
             
         </div>
     )

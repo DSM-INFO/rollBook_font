@@ -1,12 +1,7 @@
-import React from 'react'
+import {Link} from 'react-router-dom'
 import "./RollS.css"
 
-const RollS = (Submit) => {
-
-    const submitHandler = e =>{
-        e.preventDefault();
-        Submit();
-    }
+const RollS = () => {
 
     return (
         <div className="roll">
@@ -17,32 +12,17 @@ const RollS = (Submit) => {
                 </div>
 
                 <form className="btns">
-                    <div className="1g">
-                        <input 
-                        className="uBtnS" 
-                        type="submit" 
-                        value="1grade"
-                        onSubmit = {submitHandler}
-                        />
-                    </div>
-                   
-                   <div className="2g">
-                        <input 
-                        className="uBtnS" 
-                        type="submit" 
-                        value="2grade"
-                        onSubmit = {submitHandler}
-                        />
-                   </div>
-                    
-                    <div className="3g">
-                        <input 
-                        className="uBtnS" 
-                        type="submit" 
-                        value="3grade"
-                        onSubmit = {submitHandler}
-                        />
-                    </div>
+                <Link className="uBtnS" to="/show1">
+                     1학년
+                </Link>
+
+                <Link className="uBtnS" to="/show2">
+                     2학년
+                </Link>
+
+                <Link className="uBtnS" to="/show3">
+                     3학년
+                </Link>
                     
                 </form>
                

@@ -17,7 +17,9 @@ const AdminHeader= () => {
             Signup
           </Link>
         </span>
-        <Link className="button">출석 현황</Link>
+        <Link className="button" to="/rollShow">
+          출석 현황
+          </Link>
         <Link className="button" to="/addList">
           일정 추가
         </Link>
