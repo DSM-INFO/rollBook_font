@@ -10,10 +10,10 @@ import UserHeader from "./header/UserHeader";
 import AdminHeader from "./header/AdminHeader";
 import UApps from "./userLogin/UApps";
 import Form from "./Signup/Form";
-import RollS from "./Roll/RollS"
+import RollS from "./Roll/RollS";
 import RollG1 from "./Roll/RollG1";
 import RollG2 from "./Roll/RollG2";
-import RollG3 from "./Roll/RollG3"
+import RollG3 from "./Roll/RollG3";
 
 const App = () => {
     const Header = () => {
@@ -55,18 +55,18 @@ const App = () => {
                 <Route exact path="/rollShow">
                     <RollS />
                 </Route>
-                
-                <Route exact path="/show1">
-                    <RollG1/>
+
+                <Route exact path="/show:grade">
+                    <RollG1 />
                 </Route>
 
-                <Route exact path="/show2">
+                {/* <Route exact path="/show2">
                     <RollG2/>
                 </Route>
 
                 <Route exact path="/show3">
                     <RollG3/>
-                </Route>
+                </Route> */}
 
                 <Route>
                     <EmptyPage />
