@@ -30,7 +30,7 @@ const AddSchedule = () => {
             setIsLoding(true);
 
             axios
-                .post(`http://localhost:4000/Schedule`, {
+                .post(`http://122.34.166.121:5090/list/create`, {
                     title: "titleTest",
                     content: "contentTest",
                 })
