@@ -7,6 +7,8 @@ const RollG1 = () => {
             <span>이름</span> <span>출석여부</span>
             <p>dltjdb</p>
             <p>dltjdb</p>
+            <p>dltjdb</p>
+            <p>dltjdb</p>
         </div>
     )
 }
