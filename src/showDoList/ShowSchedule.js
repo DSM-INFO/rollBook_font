@@ -2,7 +2,7 @@ import React from "react";
 import UseFetch from "../hook/UseFetch";
 import Plan from "./Plan";
 
-const ShowSchedule =() => {
+const ShowSchedule = () => {
     const planList = UseFetch(`http://localhost:4000/Schedule`);
 
     return (
@@ -17,4 +17,4 @@ const ShowSchedule =() => {
     );
 };
 
-export default ShowSchedule
+export default ShowSchedule;

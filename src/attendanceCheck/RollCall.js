@@ -2,8 +2,9 @@ import React, { useRef } from "react";
 import "./RollCall.css";
 import UseFetch from "../hook/UseFetch";
 import UseChangeToNum from "./UseChangeToNum";
+import axios from "axios";
 
-const RollCall= () => {
+const RollCall = () => {
     const today = new Date();
     const memberList = UseFetch(`http://localhost:4000/Member`);
     const rollDetail = [
@@ -26,19 +27,12 @@ const RollCall= () => {
             alert("erorr!!!");
             return null;
         }
-        fetch(`http://localhost:4000/Member/${idRef.current.value}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
+        axios
+            .patch(`http://localhost:4000/Member/${idRef.current.value}`, {
                 status: check,
-            }),
-        })
+            })
             .then((res) => {
-                if (res.ok) {
-                    alert("출석체크 완료!");
-                }
+                alert("출석체크 완료!");
             })
             .catch((err) => {
                 alert(`error!!!`);
@@ -76,4 +70,4 @@ const RollCall= () => {
     );
 };
 
-export default RollCall
+export default RollCall;
