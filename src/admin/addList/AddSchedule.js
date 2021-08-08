@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useRef, useState } from "react";
-import "../css/index.css";
+import "../../css/index.css";
 import "./AddSchedule.css";
 
 const AddSchedule = () => {

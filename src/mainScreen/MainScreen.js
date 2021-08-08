@@ -1,10 +1,11 @@
+import { Link, useParams } from "react-router-dom";
 import "./firstScreen.css";
 
-const MainScreen= () => {
+const MainScreen = () => {
     return (
         <div className="blackBackground">
             <center>
-                <img src="infoIcon.png" className="img" alt='infoLogo'/>
+                <img src="infoIcon.png" className="img" alt="infoLogo" />
             </center>
             <center>
                 <p className="firstScreenText">Attendance Check System </p>
@@ -13,4 +14,4 @@ const MainScreen= () => {
     );
 };
 
-export default MainScreen
+export default MainScreen;
