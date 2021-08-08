@@ -37,17 +37,17 @@ const AddSchedule = () => {
                 .then((res) => {
                     console.log(`ok1`);
                     alert("생성이 완료되었습니다");
-                    setIsLoding(false);
-                    resetText();
                     console.log(`ok2`);
                 })
                 .catch((error) => {
                     console.log(`erorr1`);
                     alert("erorr");
-                    setIsLoding(false);
-                    resetText();
                     console.log(`erorr2`);
                 });
+
+            setIsLoding(false);
+            resetText();
+
             console.log(`end`);
         }
     };
