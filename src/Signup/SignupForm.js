@@ -3,8 +3,7 @@ import useForm from './useForm';
 
 const SignupForm = ({submitForm}) => {
 
-    const {handleChange, handleFormSubmit, values,errors} = useForm(
-        submitForm);
+    const {handleChange, handleFormSubmit, values,errors} = useForm(submitForm);
 
     return (
         <div className="container">
@@ -25,9 +24,10 @@ const SignupForm = ({submitForm}) => {
                         value={values.Name}
                         onChange={handleChange}
                         />
+                        
                         {errors.Name && <p className="error">{errors.Name}</p>}
                     </div>
-
+                    
                     <div className="ID">
                         <label className="label">ID</label>
                         <input 
@@ -77,7 +77,9 @@ const SignupForm = ({submitForm}) => {
                 </form>
             </div>
         </div>
+
     )
+ 
 }
 
 export default SignupForm;

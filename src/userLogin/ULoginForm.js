@@ -1,4 +1,5 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
+import axios from 'axios';
 
 function ULoginForm({Login, error}){
     const[details, setDetails] = useState({ID:"", password:""});
@@ -7,6 +8,14 @@ function ULoginForm({Login, error}){
         e.preventDefault();
         Login(details);
     }
+
+    useEffect(()=> {
+        const fetchEvents =  () =>{
+          const res =  axios.post("http://122.34.166.121:5090/user/login")
+          console.log(res);
+        }
+        fetchEvents();
+      }) 
 
     return (
         <form className="uSubmit" onSubmit = {submitHandler}>

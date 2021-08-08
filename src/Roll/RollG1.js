@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useParams } from "react-router-dom";
 import UseFetch from "../hook/UseFetch";
@@ -10,7 +9,9 @@ const RollG1 = () => {
     const memberList = dummy.filter((data) => data.grade === Number(grade));
     return (
         <div className="g1">
-            <span>이름</span> <span>출석여부</span>
+            <div className="title">
+                <span>이름</span> <span>출석여부</span>
+            </div>
             {memberList.map((data) => (
                 <p>{data.fullName}</p>
             ))}
