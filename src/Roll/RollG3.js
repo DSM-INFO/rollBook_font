@@ -10,7 +10,7 @@ const RollG3 = () => {
         fetchEvents();
       }) 
 
-ㄴ
+
     return (
     <div className="g3">
         <div className="title">
