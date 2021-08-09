@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import MainScreen from "./mainScreen/MainScreen";
 import AddSchedule from "./admin/addList/AddSchedule";
 import EmptyPage from "./emptyPage/EmptyPage";
@@ -17,6 +17,7 @@ const App = () => {
     return (
         <BrowserRouter>
             <Switch>
+                <Redirect exact from="/" to="/user" />
                 <Route path="/user">
                     <UserHeader />
                     <Switch>
@@ -53,10 +54,12 @@ const App = () => {
                             path="/admin/addList"
                             component={AddSchedule}
                         />
+                        <Route path="*" component={EmptyPage} />
                     </Switch>
                 </Route>
 
-                <Route>
+                <Route path="*">
+                    <UserHeader />
                     <EmptyPage />
                 </Route>
             </Switch>
