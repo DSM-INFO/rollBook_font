@@ -1,7 +1,16 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import useForm from './useForm';
+import axios from 'axios';
 
 const SignupForm = ({submitForm}) => {
+
+    useEffect(()=> {
+        const fetchEvents =  () =>{
+          const res =  axios.post("http://122.34.166.121:5090/user/signup")
+          console.log(res);
+        }
+        fetchEvents();
+      }) 
 
     const {handleChange, handleFormSubmit, values,errors} = useForm(submitForm);
 

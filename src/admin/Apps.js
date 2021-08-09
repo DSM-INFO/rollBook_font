@@ -1,13 +1,21 @@
 import React, {useState} from 'react';
 import LoginFrom from './LoginFrom';
 import "./login.css";
-
+import axios from 'axios';
 
 function Apps(){
   const adminUser= {
     ID:"admin",
     password: "admin12345"
   }
+
+  useEffect(()=> {
+    const fetchEvents =  () =>{
+      const res =  axios.post("http://122.34.166.121:5090/admin/login")
+      console.log(res);
+    }
+    fetchEvents();
+  }) 
 
   const [user, setUser] = useState({ID:"", password:""});
   const [error, setError] = useState("");
