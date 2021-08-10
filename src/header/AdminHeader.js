@@ -20,7 +20,7 @@ const AdminHeader = () => {
                 <Link className="button" to="/admin/addList">
                     일정 추가
                 </Link>
-                <Link className="button" to="/admin/showList">
+                <Link className="button" to="/user/showList">
                     일정 목록
                 </Link>
             </div>
