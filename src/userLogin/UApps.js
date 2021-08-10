@@ -3,7 +3,7 @@ import ULoginForm from "./ULoginForm";
 import "./ULogin.css";
 
 function UApps(){
-  const adminUser= {
+  const User= {
     ID:"",
     password:""
   }
@@ -14,7 +14,7 @@ function UApps(){
   const Login = details =>{
     console.log(details);
 
-    if(details.password === adminUser.password && details.ID === adminUser.ID){
+    if(details.password === User.password && details.ID === User.ID){
       console.log("Logged in");
       setUser({
         ID: details.ID
@@ -46,4 +46,3 @@ function UApps(){
 
 
 export default UApps;
-
