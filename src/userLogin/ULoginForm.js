@@ -1,32 +1,28 @@
-import React,{useState, useEffect} from 'react';
+import React,{useRef} from 'react';
 import axios from 'axios';
 import "./ULogin.css";
 
-function ULoginForm({Login, error}){
-    const[details, setDetails] = useState({ID:"", password:""});
+function ULoginForm(){
 
-    const submitHandler = e =>{
-        e.preventDefault();
-        Login(details);
-    }
+    const idRef = useRef();
+    const passwordRef = useRef();
 
-    useEffect(()=> {
-        const fetchEvents = async () =>{
-          const res = await  axios.post("https://rollbook.kro.kr:4093/user/login")
-          console.log(res);
-        }
-        fetchEvents();
-      }) 
+    const submit = () => {
+        const res = axios.post("https://rollbook.kro.kr:4093/user/login", {
+            id: idRef.current.value,
+            password: passwordRef.current.value,
+        });
+        console.log(res);
+    };
 
     return (
-        <form className="uSubmit" onSubmit = {submitHandler}>
+        <form className="uSubmit">
            
             <div className="uForm-inner">
                 <div>
                  <h2 className="uTitle">Login</h2>
                 </div>
                 
-                {(error !=="") ? ( <div className="uError">{error}</div>) : ""}
               
                <form className="uForm-group">
                 <div className="ID">
@@ -37,7 +33,8 @@ function ULoginForm({Login, error}){
                     name="id" 
                     id="id" 
                     placeholder="학번"
-                    onChange={e => setDetails({...details, id: e.target.value})} value={details.id}/>
+                    ref={idRef}
+                   />
                 </div>
                
                 <div className="password">
@@ -46,13 +43,17 @@ function ULoginForm({Login, error}){
                     className="uInput" 
                     type="password" 
                     name="Password" 
-                    id="password" 
-
+                    id="password"
+                    ref={passwordRef} 
                     placeholder="비밀번호"
-                    onChange={e => setDetails({...details, password: e.target.value})} value={details.password}/>
+                    />
                 </div>
                 
-                <input className="uBtn" type="submit" value="LOGIN"/>
+                <input 
+                className="uBtn" 
+                type="submit" 
+                value="LOGIN" 
+                onClick={submit}/>
                 </form>
             </div>
         </form>
