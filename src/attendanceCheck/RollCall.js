@@ -6,7 +6,7 @@ import axios from "axios";
 
 const RollCall = () => {
     const today = new Date();
-    const memberList = UseFetch(`http://localhost:4000/Member`);
+    const memberList = UseFetch(`https://rollbook.kro.kr:4093/user`);
     const rollDetail = [
         "출석",
         "조퇴",
@@ -28,9 +28,12 @@ const RollCall = () => {
             return null;
         }
         axios
-            .patch(`http://localhost:4000/Member/${idRef.current.value}`, {
-                status: check,
-            })
+            .patch(
+                `https://rollbook.kro.kr:4093/user/check/${idRef.current.value}`,
+                {
+                    status: check,
+                }
+            )
             .then((res) => {
                 alert("출석체크 완료!");
             })

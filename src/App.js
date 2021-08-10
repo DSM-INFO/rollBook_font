@@ -12,6 +12,7 @@ import Form from "./Signup/Form";
 import RollS from "./Roll/RollS";
 import RollG1 from "./Roll/RollG1";
 import "./css/index.css";
+import Apps from "./admin/Apps";
 
 const App = () => {
     return (
@@ -54,6 +55,7 @@ const App = () => {
                             path="/admin/addList"
                             component={AddSchedule}
                         />
+                        <Route exact path="/admin/login" component={Apps} />
                         <Route path="*" component={EmptyPage} />
                     </Switch>
                 </Route>
