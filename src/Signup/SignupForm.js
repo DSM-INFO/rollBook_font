@@ -1,16 +1,27 @@
-import React,{useEffect} from 'react'
+import React,{useRef} from 'react'
 import useForm from './useForm';
 import axios from 'axios';
 
-const SignupForm = ({submitForm}) => {
+function SignupForm  ({submitForm}){
 
-    useEffect(()=> {
-        const fetchEvents = async  () =>{
-          const res = await  axios.post("https://rollbook.kro.kr:4093/user/signup")
-          console.log(res);
-        }
-        fetchEvents();
-      }) 
+    const idRef = useRef();
+    const passwordRef = useRef();
+    const nameRef = useRef();
+    const gradeRef = useRef();
+
+    const submit = () => {
+        const res = axios
+            .post("https://rollbook.kro.kr:4093/user/signUp", {
+                id: idRef.current.value,
+                password: passwordRef.current.value,
+                name: nameRef.current.value,
+                grade: gradeRef.current.value,
+            })
+            .then((res) => {
+                console.log(res);
+            });
+        console.log(`res = ${res}`);
+    };
 
     const {handleChange, handleFormSubmit, values,errors} = useForm(submitForm);
 
@@ -31,6 +42,7 @@ const SignupForm = ({submitForm}) => {
                         name="name" 
                         placeholder="이름"
                         value={values.name}
+                        ref={nameRef}
                         onChange={handleChange}
                         />
                         
@@ -38,13 +50,14 @@ const SignupForm = ({submitForm}) => {
                     </div>
                     
                     <div className="id">
-                        <label className="label">id</label>
+                        <label className="label">ID</label>
                         <input 
                         className="input" 
                         type="text" 
                         name="id" 
                         placeholder="학번"
                         value={values.id}
+                        ref={idRef}
                         onChange={handleChange}
                         />
 
@@ -57,6 +70,7 @@ const SignupForm = ({submitForm}) => {
                         className="input"
                         name="grade" 
                         value={values.grade}
+                        ref={gradeRef}
                         onChange={handleChange}>
                             <option>1</option>
                             <option>2</option>
@@ -74,6 +88,7 @@ const SignupForm = ({submitForm}) => {
                         name="password" 
                         placeholder="비밀번호"
                         value={values.password}
+                        ref={passwordRef}
                         onChange={handleChange}
                         />
 
@@ -81,7 +96,7 @@ const SignupForm = ({submitForm}) => {
                     </div>
 
                     <div>
-                        <button className="submit" onClick={handleFormSubmit}>Sign up</button>
+                        <button className="submit" onClick={handleFormSubmit, submit}>Sign up</button>
                     </div>
                 </form>
             </div>

@@ -8,12 +8,16 @@ function ULoginForm(){
     const passwordRef = useRef();
 
     const submit = () => {
-        const res = axios.post("https://rollbook.kro.kr:4093/user/login", {
+        const res = axios
+        .post("https://rollbook.kro.kr:4093/user/login", {
             id: idRef.current.value,
             password: passwordRef.current.value,
+        })
+        .then((res) => {
+            console.log(res);
         });
-        console.log(res);
-    };
+         console.log(`res = ${res}`);
+        };
 
     return (
         <form className="uSubmit">
