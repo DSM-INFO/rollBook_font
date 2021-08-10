@@ -15,7 +15,6 @@ const RollG1 = () => {
             {memberList.map((data) => (
                 <p>{data.fullName}</p>
             ))}
-
         </div>
     );
 };

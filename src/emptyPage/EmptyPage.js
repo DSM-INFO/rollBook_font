@@ -1,11 +1,14 @@
 import "./emptyPage.css";
+import message404 from "../img/Message.png";
+import cat404 from "../img/empty.png";
+import githubLink from "../img/github.png";
 
 const EmtpyPage = () => {
     return (
         <div>
             <div className="emptyPage_background">
-                <img src="Message.png" className="emptyMessage" alt="Message" />
-                <img src="empty.png" className="cat404" alt="404Cat" />
+                <img src={message404} className="emptyMessage" alt="Message" />
+                <img src={cat404} className="cat404" alt="404Cat" />
             </div>
             <div className="showDevelopersScreen">
                 <div className="DeveloperScreenToCenter">
@@ -26,9 +29,9 @@ const EmtpyPage = () => {
                 <div className="showProjectInfo">
                     <span className="projectName">2021 INFO RollBook</span>
                     <div>
-                        <a href="https://github.com/DSM-INFO">
+                        <a href="https://github.com/DSM-INFO" target="_blank">
                             <img
-                                src="github.png"
+                                src={githubLink}
                                 className="githubIcon"
                                 alt="githubLogo"
                             />

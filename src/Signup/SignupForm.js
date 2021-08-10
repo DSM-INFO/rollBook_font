@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React,{useRef} from 'react'
 import useForm from './useForm';
 import axios from 'axios';
@@ -22,12 +23,28 @@ function SignupForm  ({submitForm}){
             });
         console.log(`res = ${res}`);
     };
+=======
+import React, { useEffect } from "react";
+import useForm from "./useForm";
+import axios from "axios";
 
-    const {handleChange, handleFormSubmit, values,errors} = useForm(submitForm);
+const SignupForm = ({ submitForm }) => {
+    useEffect(() => {
+        const fetchEvents = async () => {
+            const res = await axios.post(
+                "https://rollbook.kro.kr:4093/user/signup"
+            );
+            console.log(res);
+        };
+        fetchEvents();
+    });
+>>>>>>> fbb110fed1a8c451c65d69aa45fbc7f77cb8f3c7
+
+    const { handleChange, handleFormSubmit, values, errors } =
+        useForm(submitForm);
 
     return (
         <div className="container">
-
             <div className="app-wrapper">
                 <div>
                     <h2 className="title">Sign Up</h2>
@@ -36,6 +53,7 @@ function SignupForm  ({submitForm}){
                 <form className="form-wrapper">
                     <div className="Name">
                         <label className="label">name</label>
+<<<<<<< HEAD
                         <input 
                         className="input" 
                         type="text" 
@@ -44,12 +62,22 @@ function SignupForm  ({submitForm}){
                         value={values.name}
                         ref={nameRef}
                         onChange={handleChange}
+=======
+                        <input
+                            className="input"
+                            type="text"
+                            name="name"
+                            placeholder="이름"
+                            value={values.name}
+                            onChange={handleChange}
+>>>>>>> fbb110fed1a8c451c65d69aa45fbc7f77cb8f3c7
                         />
-                        
+
                         {errors.name && <p className="error">{errors.name}</p>}
                     </div>
-                    
+
                     <div className="id">
+<<<<<<< HEAD
                         <label className="label">ID</label>
                         <input 
                         className="input" 
@@ -59,6 +87,16 @@ function SignupForm  ({submitForm}){
                         value={values.id}
                         ref={idRef}
                         onChange={handleChange}
+=======
+                        <label className="label">id</label>
+                        <input
+                            className="input"
+                            type="text"
+                            name="id"
+                            placeholder="학번"
+                            value={values.id}
+                            onChange={handleChange}
+>>>>>>> fbb110fed1a8c451c65d69aa45fbc7f77cb8f3c7
                         />
 
                         {errors.id && <p className="error">{errors.id}</p>}
@@ -66,22 +104,34 @@ function SignupForm  ({submitForm}){
 
                     <div className="Grade">
                         <label className="label">grade</label>
+<<<<<<< HEAD
                         <select 
                         className="input"
                         name="grade" 
                         value={values.grade}
                         ref={gradeRef}
                         onChange={handleChange}>
+=======
+                        <select
+                            className="input"
+                            name="grade"
+                            value={values.grade}
+                            onChange={handleChange}
+                        >
+>>>>>>> fbb110fed1a8c451c65d69aa45fbc7f77cb8f3c7
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
                         </select>
 
-                        {errors.grade && <p className="error">{errors.grade}</p>}
+                        {errors.grade && (
+                            <p className="error">{errors.grade}</p>
+                        )}
                     </div>
 
                     <div className="Password">
                         <label className="label">password</label>
+<<<<<<< HEAD
                         <input 
                         className="input" 
                         type="password"
@@ -90,20 +140,35 @@ function SignupForm  ({submitForm}){
                         value={values.password}
                         ref={passwordRef}
                         onChange={handleChange}
+=======
+                        <input
+                            className="input"
+                            type="password"
+                            name="password"
+                            placeholder="비밀번호"
+                            value={values.password}
+                            onChange={handleChange}
+>>>>>>> fbb110fed1a8c451c65d69aa45fbc7f77cb8f3c7
                         />
 
-                        {errors.password && <p className="error">{errors.password}</p>}
+                        {errors.password && (
+                            <p className="error">{errors.password}</p>
+                        )}
                     </div>
 
                     <div>
+<<<<<<< HEAD
                         <button className="submit" onClick={handleFormSubmit, submit}>Sign up</button>
+=======
+                        <button className="submit" onClick={handleFormSubmit}>
+                            Sign up
+                        </button>
+>>>>>>> fbb110fed1a8c451c65d69aa45fbc7f77cb8f3c7
                     </div>
                 </form>
             </div>
         </div>
-
-    )
- 
-}
+    );
+};
 
 export default SignupForm;

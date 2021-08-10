@@ -10,9 +10,9 @@ import AdminHeader from "./header/AdminHeader";
 import ULoginForm from "./userLogin/ULoginForm";
 import Form from "./Signup/Form";
 import RollS from "./Roll/RollS";
-import RollG1 from "./Roll/RollG1";
+import RollG from "./Roll/RollG";
 import "./css/index.css";
-import LoginForm from"./admin/LoginFrom";
+import LoginForm from "./admin/LoginFrom";
 
 const App = () => {
     return (
@@ -24,7 +24,11 @@ const App = () => {
                     <Switch>
                         <Route exact path="/user/" component={MainScreen} />
 
-                        <Route exact path="/user/login" component={ULoginForm} />
+                        <Route
+                            exact
+                            path="/user/login"
+                            component={ULoginForm}
+                        />
                         <Route
                             exact
                             path="/user/showList"
@@ -44,19 +48,23 @@ const App = () => {
                     <AdminHeader />
                     <Switch>
                         <Route exact path="/admin/" component={MainScreen} />
-                        
+
                         <Route exact path="/admin/rollShow" component={RollS} />
                         <Route
                             exact
-                            path="/admin/show:grade"
-                            component={RollG1}
+                            path="/admin/rollShow:grade"
+                            component={RollG}
                         />
                         <Route
                             exact
                             path="/admin/addList"
                             component={AddSchedule}
                         />
-                        <Route exact path="/admin/login" component={LoginForm} />
+                        <Route
+                            exact
+                            path="/admin/login"
+                            component={LoginForm}
+                        />
                         <Route path="*" component={EmptyPage} />
                     </Switch>
                 </Route>

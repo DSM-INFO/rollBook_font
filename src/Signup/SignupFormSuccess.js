@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const SignupFormSuccess = () => {
     return (
@@ -7,7 +7,7 @@ const SignupFormSuccess = () => {
                 <h1 className="form-success">가입이 완료되었습니다.</h1>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default SignupFormSuccess
+export default SignupFormSuccess;
