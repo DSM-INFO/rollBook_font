@@ -6,7 +6,7 @@ import axios from "axios";
 
 const RollCall = () => {
     const today = new Date();
-    const memberList = UseFetch(`https://rollbook.kro.kr:4093/user`);
+    const memberList = " /*이름*/  ";
     const rollDetail = [
         "출석",
         "조퇴",
@@ -53,11 +53,9 @@ const RollCall = () => {
                     </h1>
 
                     <div>
-                        <select className="memberList" ref={idRef}>
-                            {memberList.map((member) => (
-                                <option key={member.uId}>{member.id}</option>
-                            ))}
-                        </select>
+                        <span className="memberList" ref={idRef}>
+                            {memberList}
+                        </span>
                         <select className="memberList" ref={detailRef}>
                             {rollDetail.map((detail) => (
                                 <option key={detail}>{detail}</option>

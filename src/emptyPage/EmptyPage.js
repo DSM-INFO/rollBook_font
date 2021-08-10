@@ -1,11 +1,11 @@
 import "./emptyPage.css";
 
-const EmtpyPage= () => {
+const EmtpyPage = () => {
     return (
         <div>
             <div className="emptyPage_background">
-                <img src="Message.png" className="emptyMessage" alt='Message'/>
-                <img src="empty.png" className="cat404" alt='404Cat'/>
+                <img src="Message.png" className="emptyMessage" alt="Message" />
+                <img src="empty.png" className="cat404" alt="404Cat" />
             </div>
             <div className="showDevelopersScreen">
                 <div className="DeveloperScreenToCenter">
@@ -26,8 +26,12 @@ const EmtpyPage= () => {
                 <div className="showProjectInfo">
                     <span className="projectName">2021 INFO RollBook</span>
                     <div>
-                        <a href="https://github.com/DSM-INFO/rollBook-project">
-                            <img src="github.png" className="githubIcon" alt='githubLogo'/>
+                        <a href="https://github.com/DSM-INFO">
+                            <img
+                                src="github.png"
+                                className="githubIcon"
+                                alt="githubLogo"
+                            />
                         </a>
                     </div>
                 </div>
@@ -36,4 +40,4 @@ const EmtpyPage= () => {
     );
 };
 
-export default EmtpyPage
+export default EmtpyPage;

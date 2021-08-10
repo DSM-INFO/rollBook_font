@@ -1,43 +1,44 @@
 .rollCallWindow {
-  background-color: whitesmoke;
+    background-color: whitesmoke;
 
-  border: 10px solid;
-  border-image: linear-gradient(
-    to bottom,
-    rgb(151, 232, 254),
-    rgb(218, 155, 255)
-  );
-  border-image-slice: 1;
-  height: 150px;
-  width: 400px;
-  margin-top: 25vh;
-  padding: 30px;
+    border: 10px solid;
+    border-image: linear-gradient(
+        to bottom,
+        rgb(151, 232, 254),
+        rgb(218, 155, 255)
+    );
+    border-image-slice: 1;
+    height: 150px;
+    width: 400px;
+    margin-top: 25vh;
+    padding: 30px;
 }
 
 .rollCallToCenter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .printToday {
-  margin-top: 0px;
-  margin-bottom: 50px;
-  color: rgb(151, 232, 254);
+    margin-top: 0px;
+    margin-bottom: 50px;
+    color: rgb(151, 232, 254);
 }
 
 .rollCallWindow .memberList {
-  background-color: whitesmoke;
-  border: none;
-  width: 150px;
-  font-size: 20px;
+    background-color: whitesmoke;
+    border: none;
+    width: 150px;
+    font-size: 20px;
+    color: black;
 }
 
 .rollCallWindow .checkSendBetton {
-  border: none;
-  background-color: whitesmoke;
-  color: rgb(218, 155, 255);
-  font-size: 20px;
-  margin-left: 10px;
-  cursor: pointer;
+    border: none;
+    background-color: whitesmoke;
+    color: rgb(218, 155, 255);
+    font-size: 20px;
+    margin-left: 10px;
+    cursor: pointer;
 }
