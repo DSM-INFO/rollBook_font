@@ -29,7 +29,7 @@ const EmtpyPage = () => {
                 <div className="showProjectInfo">
                     <span className="projectName">2021 INFO RollBook</span>
                     <div>
-                        <a href="https://github.com/DSM-INFO">
+                        <a href="https://github.com/DSM-INFO" target="_blank">
                             <img
                                 src={githubLink}
                                 className="githubIcon"
