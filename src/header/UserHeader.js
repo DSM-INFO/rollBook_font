@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import "./Header.css";
-// import logo from '../../public/infoIcon.png'
+import logo from "../img/infoIcon.png";
 
 const UserHeader = () => {
     return (
         <div className="header">
             <Link className="printToLogo" to="/user">
-                <img src="infoIcon.png" alt="infoIcon" />
+                <img src={logo} alt="infoIcon" />
             </Link>
             <div className="tool">
                 <span className="lAndS_Button">

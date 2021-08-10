@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import "./Header.css";
+import logo from "../img/infoIcon-admin.png";
 
 const AdminHeader = () => {
     return (
         <div className="header">
             <Link className="printToLogo" to="/admin">
-                <img src="infoIcon-admin.png" alt="infoIcon" />
+                <img src={logo} alt="infoIcon" />
             </Link>
             <div className="tool">
                 <span className="lAndS_Button">

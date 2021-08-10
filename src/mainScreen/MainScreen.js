@@ -1,11 +1,11 @@
-// import { Link, useParams } from "react-router-dom";
 import "./firstScreen.css";
+import infoLogo from "../img/infoIcon.png";
 
 const MainScreen = () => {
     return (
         <div className="blackBackground">
             <center>
-                <img src="infoIcon.png" className="img" alt="infoLogo" />
+                <img src={infoLogo} className="img" alt="infoLogo" />
             </center>
             <center>
                 <p className="firstScreenText">Attendance Check System </p>
