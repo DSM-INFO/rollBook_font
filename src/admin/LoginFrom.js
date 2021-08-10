@@ -7,11 +7,15 @@ function LoginFrom() {
     const passwordRef = useRef();
 
     const submit = () => {
-        const res = axios.post("https://rollbook.kro.kr:4093/admin/login", {
-            id: idRef.current.value,
-            password: passwordRef.current.value,
-        });
-        console.log(res);
+        const res = axios
+            .post("https://rollbook.kro.kr:4093/admin/login", {
+                id: idRef.current.value,
+                password: passwordRef.current.value,
+            })
+            .then((res) => {
+                console.log(res);
+            });
+        console.log(`res = ${res}`);
     };
 
     return (
@@ -40,7 +44,7 @@ function LoginFrom() {
                 </div>
                 <input
                     className="inputs"
-                    type="submit"
+                    type="button"
                     value="LOGIN"
                     onClick={submit}
                 />
