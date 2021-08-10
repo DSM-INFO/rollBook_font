@@ -6,7 +6,7 @@ const SignupForm = ({submitForm}) => {
 
     useEffect(()=> {
         const fetchEvents =  () =>{
-          const res =  axios.post("http://122.34.166.121:5090/user/signup")
+          const res =  axios.post("https://rollbook.kro.kr:4093/user/signup")
           console.log(res);
         }
         fetchEvents();

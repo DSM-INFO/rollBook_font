@@ -7,7 +7,7 @@ const RollS = () => {
 
     useEffect(()=> {
         const fetchEvents =  () =>{
-          const res =  axios.get("http://122.34.166.121:5090/user/:grade")
+          const res =  axios.post("https://rollbook.kro.kr:4093/user/:grade")
           console.log(res);
         }
         fetchEvents();

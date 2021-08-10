@@ -4,8 +4,8 @@ import "./ULogin.css";
 
 function UApps(){
   const adminUser= {
-    ID:"admin",
-    password: "admin12345"
+    ID:"",
+    password:""
   }
 
   const [user, setUser] = useState({ID:"", password:""});
