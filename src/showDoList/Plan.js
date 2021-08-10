@@ -8,7 +8,7 @@ const Plan = ({ plan: p }) => {
     const Del = () => {
         if (window.confirm("삭제하시겠습니까?")) {
             axios
-                .delete(`http://localhost:4000/Schedule/${plan.id}`)
+                .delete(`https://rollbook.kro.kr:4093/list/delete/${plan.id}`)
                 .then((res) => {
                     setPlan({ id: 0 });
                 });

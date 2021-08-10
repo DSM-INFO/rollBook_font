@@ -30,7 +30,7 @@ const AddSchedule = () => {
             setIsLoding(true);
 
             axios
-                .post(`http://122.34.166.121:5090/list/create`, {
+                .post(`https://rollbook.kro.kr:4093/list/create`, {
                     title: "titleTest",
                     content: "contentTest",
                 })

@@ -12,10 +12,6 @@ const AdminHeader = () => {
                     <Link to="/admin/login" className="loginAndSignup">
                         Login
                     </Link>
-                    {/* |
-                    <Link to="/admin/signup" className="loginAndSignup">
-                        Signup
-                    </Link> */}
                 </span>
                 <Link className="button" to="/admin/rollShow">
                     출석 현황
