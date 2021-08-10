@@ -1,17 +1,18 @@
-import React,{useEffect} from 'react';
-import axios from 'axios';
+import React, { useEffect, useRef } from "react";
+import axios from "axios";
 import "./login.css";
 
-function LoginFrom(){
-   
+function LoginFrom() {
+    const idRef = useRef();
+    const passwordRef = useRef();
 
-    useEffect(()=> {
-        const fetchEvents =  () =>{
-          const res =  axios.post("https://rollbook.kro.kr:4093/admin/login")
-          console.log(res);
-        }
-        fetchEvents();
-      }) 
+    const submit = () => {
+        const res = axios.post("https://rollbook.kro.kr:4093/admin/login", {
+            id: idRef.current.value,
+            password: passwordRef.current.value,
+        });
+        console.log(res);
+    };
 
     return (
         <form className="submits">
@@ -19,24 +20,33 @@ function LoginFrom(){
                 <h2>Admin Login</h2>
                 <div className="form-group">
                     <label htmlFor="id">id:</label>
-                    <input className="inputs" 
-                    type="text" 
-                    name="id" 
-                    id="id" 
+                    <input
+                        className="inputs"
+                        type="text"
+                        name="id"
+                        id="id"
+                        ref={idRef}
                     />
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Password:</label>
-                    <input className="inputs" 
-                    type="password" 
-                    name="Password" 
-                    id="password" 
-                   />
+                    <input
+                        className="inputs"
+                        type="password"
+                        name="Password"
+                        id="password"
+                        ref={passwordRef}
+                    />
                 </div>
-                <input className="inputs" type="submit" value="LOGIN"/>
+                <input
+                    className="inputs"
+                    type="submit"
+                    value="LOGIN"
+                    onClick={submit}
+                />
             </div>
         </form>
-    )
+    );
 }
 
 export default LoginFrom;
