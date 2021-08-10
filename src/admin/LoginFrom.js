@@ -1,25 +1,29 @@
-import React,{useState} from 'react';
+import React,{useEffect} from 'react';
+import axios from 'axios';
+import "./login.css";
 
-function LoginFrom({Login, error}){
-    const[details, setDetails] = useState({ID:"", password:""});
+function LoginFrom(){
+   
 
-    const submitHandler = e =>{
-        e.preventDefault();
-        Login(details);
-    }
+    useEffect(()=> {
+        const fetchEvents =  () =>{
+          const res =  axios.post("https://rollbook.kro.kr:4093/admin/login")
+          console.log(res);
+        }
+        fetchEvents();
+      }) 
 
     return (
-        <form className="submits" onSubmit = {submitHandler}>
+        <form className="submits">
             <div className="form-inner">
                 <h2>Admin Login</h2>
-                {(error !=="") ? ( <div className="error">{error}</div>) : ""}
                 <div className="form-group">
-                    <label htmlFor="ID">ID:</label>
+                    <label htmlFor="id">id:</label>
                     <input className="inputs" 
                     type="text" 
-                    name="ID" 
-                    id="ID" 
-                    onChange={e => setDetails({...details, ID: e.target.value})} value={details.ID}/>
+                    name="id" 
+                    id="id" 
+                    />
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Password:</label>
@@ -27,7 +31,7 @@ function LoginFrom({Login, error}){
                     type="password" 
                     name="Password" 
                     id="password" 
-                    onChange={e => setDetails({...details, password: e.target.value})} value={details.password}/>
+                   />
                 </div>
                 <input className="inputs" type="submit" value="LOGIN"/>
             </div>

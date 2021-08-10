@@ -1,5 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import axios from 'axios';
+import "./ULogin.css";
 
 function ULoginForm({Login, error}){
     const[details, setDetails] = useState({ID:"", password:""});
@@ -10,8 +11,8 @@ function ULoginForm({Login, error}){
     }
 
     useEffect(()=> {
-        const fetchEvents =  () =>{
-          const res =  axios.post("https://rollbook.kro.kr:4093/user/login")
+        const fetchEvents = async () =>{
+          const res = await  axios.post("https://rollbook.kro.kr:4093/user/login")
           console.log(res);
         }
         fetchEvents();
@@ -29,23 +30,24 @@ function ULoginForm({Login, error}){
               
                <form className="uForm-group">
                 <div className="ID">
-                    <label htmlFor="ID">ID</label>
+                    <label htmlFor="ID">id</label>
                     <input 
                     className="uInput" 
                     type="text" 
-                    name="ID" 
-                    id="ID" 
+                    name="id" 
+                    id="id" 
                     placeholder="학번"
-                    onChange={e => setDetails({...details, ID: e.target.value})} value={details.ID}/>
+                    onChange={e => setDetails({...details, id: e.target.value})} value={details.id}/>
                 </div>
                
                 <div className="password">
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password">password</label>
                     <input 
                     className="uInput" 
                     type="password" 
                     name="Password" 
                     id="password" 
+
                     placeholder="비밀번호"
                     onChange={e => setDetails({...details, password: e.target.value})} value={details.password}/>
                 </div>

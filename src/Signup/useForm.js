@@ -4,10 +4,10 @@ import Validation from './Validation';
 const useForm = (submitForm) =>{
 
     const [values, setValues] = useState({
-        Name:"",
-        ID:"",
-        Password:"",
-        Grade:"",
+        name:"",
+        id:"",
+        password:"",
+        grade:"",
     });
     
     const [errors, setErrors] = useState({});

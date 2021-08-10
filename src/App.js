@@ -7,12 +7,12 @@ import ShowSchedule from "./showDoList/ShowSchedule";
 import RollCall from "./attendanceCheck/RollCall";
 import UserHeader from "./header/UserHeader";
 import AdminHeader from "./header/AdminHeader";
-import UApps from "./userLogin/UApps";
+import ULoginForm from "./userLogin/ULoginForm";
 import Form from "./Signup/Form";
 import RollS from "./Roll/RollS";
 import RollG1 from "./Roll/RollG1";
 import "./css/index.css";
-import Apps from "./admin/Apps";
+import LoginForm from"./admin/LoginFrom";
 
 const App = () => {
     return (
@@ -24,7 +24,7 @@ const App = () => {
                     <Switch>
                         <Route exact path="/user/" component={MainScreen} />
 
-                        <Route exact path="/user/login" component={UApps} />
+                        <Route exact path="/user/login" component={ULoginForm} />
                         <Route
                             exact
                             path="/user/showList"
@@ -44,6 +44,7 @@ const App = () => {
                     <AdminHeader />
                     <Switch>
                         <Route exact path="/admin/" component={MainScreen} />
+                        
                         <Route exact path="/admin/rollShow" component={RollS} />
                         <Route
                             exact
@@ -55,7 +56,7 @@ const App = () => {
                             path="/admin/addList"
                             component={AddSchedule}
                         />
-                        <Route exact path="/admin/login" component={Apps} />
+                        <Route exact path="/admin/login" component={LoginForm} />
                         <Route path="*" component={EmptyPage} />
                     </Switch>
                 </Route>

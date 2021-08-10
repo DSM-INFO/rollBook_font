@@ -5,8 +5,8 @@ import axios from 'axios';
 const SignupForm = ({submitForm}) => {
 
     useEffect(()=> {
-        const fetchEvents =  () =>{
-          const res =  axios.post("https://rollbook.kro.kr:4093/user/signup")
+        const fetchEvents = async  () =>{
+          const res = await  axios.post("https://rollbook.kro.kr:4093/user/signup")
           console.log(res);
         }
         fetchEvents();
@@ -24,60 +24,60 @@ const SignupForm = ({submitForm}) => {
 
                 <form className="form-wrapper">
                     <div className="Name">
-                        <label className="label">Name</label>
+                        <label className="label">name</label>
                         <input 
                         className="input" 
                         type="text" 
-                        name="Name" 
+                        name="name" 
                         placeholder="이름"
-                        value={values.Name}
+                        value={values.name}
                         onChange={handleChange}
                         />
                         
-                        {errors.Name && <p className="error">{errors.Name}</p>}
+                        {errors.name && <p className="error">{errors.name}</p>}
                     </div>
                     
-                    <div className="ID">
-                        <label className="label">ID</label>
+                    <div className="id">
+                        <label className="label">id</label>
                         <input 
                         className="input" 
                         type="text" 
-                        name="ID" 
+                        name="id" 
                         placeholder="학번"
-                        value={values.ID}
+                        value={values.id}
                         onChange={handleChange}
                         />
 
-                        {errors.ID && <p className="error">{errors.ID}</p>}
+                        {errors.id && <p className="error">{errors.id}</p>}
                     </div>
 
                     <div className="Grade">
-                        <label className="label">Grade</label>
+                        <label className="label">grade</label>
                         <select 
                         className="input"
-                        name="Grade" 
-                        value={values.Grade}
+                        name="grade" 
+                        value={values.grade}
                         onChange={handleChange}>
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
                         </select>
 
-                        {errors.Grade && <p className="error">{errors.Grade}</p>}
+                        {errors.grade && <p className="error">{errors.grade}</p>}
                     </div>
 
                     <div className="Password">
-                        <label className="label">Password</label>
+                        <label className="label">password</label>
                         <input 
                         className="input" 
                         type="password"
-                        name="Password" 
+                        name="password" 
                         placeholder="비밀번호"
-                        value={values.Password}
+                        value={values.password}
                         onChange={handleChange}
                         />
 
-                        {errors.Password && <p className="error">{errors.Password}</p>}
+                        {errors.password && <p className="error">{errors.password}</p>}
                     </div>
 
                     <div>

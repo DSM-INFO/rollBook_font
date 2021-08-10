@@ -5,7 +5,7 @@ import "./RollS.css";
 
 const RollG1 = () => {
     const grade = useParams().grade;
-    const dummy = UseFetch(`http://localhost:4000/Member`);
+    const dummy = UseFetch(`http://localhost:3000/Member`);
     const memberList = dummy.filter((data) => data.grade === Number(grade));
     return (
         <div className="g1">
