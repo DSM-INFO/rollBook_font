@@ -103,11 +103,15 @@ function SignupForm ({submitForm}){
 
 
                     <div>
-                        <button 
-                        className="submit"
-                        onClick={handleFormSubmit}>
-                            Sign up
-                        </button>
+                        <button
+                            type="button"
+                            className="submit"
+                            onClick={(e) => {
+                                if (!handleFormSubmit(e)) {
+                                    submit();
+                                }
+                            }}
+                       />
                     </div>
                 </form>
             </div>
