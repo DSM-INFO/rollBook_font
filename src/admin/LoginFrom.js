@@ -7,8 +7,10 @@ function LoginFrom() {
     const passwordRef = useRef("");
 
     const checkPasswordRule = () => {
-        var check_spc = /[~!@#$%^&*()_+|<>?:{}()]/;
-        return check_spc.test(passwordRef.current.value);
+        // var check_spc = /[~!@#$%^&*()_+|<>?:{}()]/;
+        var check_spc = /^[A-Za-z0-9+]*$/;
+
+        return !check_spc.test(passwordRef.current.value);
     };
 
     const submit = () => {
