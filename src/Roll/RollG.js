@@ -3,9 +3,9 @@ import { useParams } from "react-router-dom";
 import UseFetch from "../hook/UseFetch";
 import "./RollS.css";
 
-const RollG1 = () => {
+const RollG = () => {
     const grade = useParams().grade;
-    const dummy = UseFetch(`http://localhost:3000/Member`);
+    const dummy = UseFetch (`https://rollbook.kro.kr:4093/user/:grade`);
     const memberList = dummy.filter((data) => data.grade === Number(grade));
     return (
         <div className="g1">
@@ -19,6 +19,6 @@ const RollG1 = () => {
     );
 };
 
-export default RollG1;
+export default RollG;
 //yarn global add json-server
 //json-server --watch ./src/DB/data.json --port 4000

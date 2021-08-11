@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import Validation from "./Validation";
+import SignupForm from "./SignupForm";
+
 
 const useForm = (submitForm) => {
     const [values, setValues] = useState({
@@ -23,6 +25,9 @@ const useForm = (submitForm) => {
         event.preventDefault();
         setErrors(Validation(values));
         setDataIsCorrect(true);
+        if (Validation.values==true){
+            SignupForm(submit);
+        }
     };
 
     useEffect(() => {

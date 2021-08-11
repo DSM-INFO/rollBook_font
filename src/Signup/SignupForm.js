@@ -2,7 +2,8 @@ import React,{useRef} from 'react'
 import useForm from './useForm';
 import axios from 'axios';
 
-function SignupForm  ({submitForm}){
+function SignupForm ({submitForm}){
+    
 
     const idRef = useRef();
     const passwordRef = useRef();
@@ -11,7 +12,7 @@ function SignupForm  ({submitForm}){
 
     const submit = () => {
         const res = axios
-            .post("https://rollbook.kro.kr:4093/user/signUp", {
+            .post("https://rollbook.kro.kr:4093/user/signup", {
                 id: idRef.current.value,
                 password: passwordRef.current.value,
                 name: nameRef.current.value,
@@ -50,7 +51,7 @@ function SignupForm  ({submitForm}){
                     </div>
 
                     <div className="id">
-                        <label className="label">ID</label>
+                        <label className="label">id</label>
                         <input 
                         className="input" 
                         type="text" 
@@ -66,20 +67,19 @@ function SignupForm  ({submitForm}){
 
                     <div className="Grade">
                         <label className="label">grade</label>
-                        <select 
+                        <input 
                         className="input"
+                        type="number"
+                        placeholder="학년"
                         name="grade" 
                         value={values.grade}
                         ref={gradeRef}
                         onChange={handleChange}>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                        </select>
+                        </input>
 
-                        {errors.grade && (
+                        {errors.grade && 
                             <p className="error">{errors.grade}</p>
-                        )}
+                        }
                     </div>
 
                     <div className="Password">
@@ -94,13 +94,20 @@ function SignupForm  ({submitForm}){
                         onChange={handleChange}
                         />
 
-                        {errors.password && (
+                        {errors.password && 
                             <p className="error">{errors.password}</p>
-                        )}
+                        }
                     </div>
 
+                        
+
+
                     <div>
-                        <button className="submit" onClick={handleFormSubmit, submit}>Sign up</button>
+                        <button 
+                        className="submit"
+                        onClick={handleFormSubmit}>
+                            Sign up
+                        </button>
                     </div>
                 </form>
             </div>

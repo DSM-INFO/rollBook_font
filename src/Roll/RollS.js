@@ -1,16 +1,19 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./RollS.css";
 
 const RollS = () => {
-    useEffect(() => {
-        const fetchEvents = () => {
-            const res = axios.post("https://rollbook.kro.kr:4093/user/:grade");
-            console.log(res);
-        };
-        fetchEvents();
-    });
+   
+    const res = axios
+            .get("https://rollbook.kro.kr:4093/user/:grade", {
+                id: idRef.current.value,
+                name: nameRef.current.value,
+                grade: gradeRef.current.value,
+            })
+            .then((res) => {
+                console.log(res);
+            });
+        console.log(`res = ${res}`);
 
     return (
         <div className="roll">
