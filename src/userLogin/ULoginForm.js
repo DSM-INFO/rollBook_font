@@ -1,18 +1,29 @@
-import React, { useRef } from 'react'
-import axios from 'axios'
-import './ULogin.css'
+import React, { useRef } from "react";
+import axios from "axios";
+import "./ULogin.css";
+import useCheckRule from "../hook/useCheckRule";
 
 function ULoginForm() {
-    const idRef = useRef()
-    const passwordRef = useRef()
+    const idRef = useRef();
+    const passwordRef = useRef();
+    const { CheckRule } = useCheckRule();
 
     const submit = () => {
-        const res = axios.post('https://rollbook.kro.kr:4093/user/login', {
+        const id = idRef.current.value;
+        const password = passwordRef.current.value;
+
+        if (CheckRule(id, password)) {
+            idRef.current.value = "";
+            passwordRef.current.value = "";
+            return null;
+        }
+
+        const res = axios.post("https://rollbook.kro.kr:4093/user/login", {
             id: idRef.current.value,
             password: passwordRef.current.value,
-        })
-        console.log(res)
-    }
+        });
+        console.log(res);
+    };
 
     return (
         <form className="uSubmit">
@@ -48,14 +59,14 @@ function ULoginForm() {
 
                     <input
                         className="uBtn"
-                        type="submit"
+                        type="button"
                         value="LOGIN"
                         onClick={submit}
                     />
                 </form>
             </div>
         </form>
-    )
+    );
 }
 
-export default ULoginForm
+export default ULoginForm;

@@ -1,29 +1,20 @@
 import React, { useRef } from "react";
 import axios from "axios";
 import "./login.css";
+import useCheckRule from "../hook/useCheckRule";
 
 function LoginFrom() {
     const idRef = useRef("");
     const passwordRef = useRef("");
-
-    const checkPasswordRule = () => {
-        const check_spc = /^[A-Za-z0-9+]*$/;
-
-        const Allow =
-            !check_spc.test(passwordRef.current.value) ||
-            !check_spc.test(idRef.current.value);
-
-        if (Allow) {
-            alert(`error : 특수문자는 사용 하실 수 없습니다`);
-
-            idRef.current.value = "";
-            passwordRef.current.value = "";
-        }
-        return Allow;
-    };
+    const { CheckRule } = useCheckRule();
 
     const submit = () => {
-        if (checkPasswordRule()) {
+        const id = idRef.current.value;
+        const password = passwordRef.current.value;
+
+        if (CheckRule(id, password)) {
+            idRef.current.value = "";
+            passwordRef.current.value = "";
             return null;
         }
 
