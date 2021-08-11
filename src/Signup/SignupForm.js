@@ -1,9 +1,8 @@
-import React,{useRef} from 'react'
-import useForm from './useForm';
-import axios from 'axios';
+import React, { useRef } from "react";
+import useForm from "./useForm";
+import axios from "axios";
 
-function SignupForm  ({submitForm}){
-
+function SignupForm({ submitForm }) {
     const idRef = useRef();
     const passwordRef = useRef();
     const nameRef = useRef();
@@ -36,14 +35,14 @@ function SignupForm  ({submitForm}){
                 <form className="form-wrapper">
                     <div className="Name">
                         <label className="label">name</label>
-                        <input 
-                        className="input" 
-                        type="text" 
-                        name="name" 
-                        placeholder="이름"
-                        value={values.name}
-                        ref={nameRef}
-                        onChange={handleChange}
+                        <input
+                            className="input"
+                            type="text"
+                            name="name"
+                            placeholder="이름"
+                            value={values.name}
+                            ref={nameRef}
+                            onChange={handleChange}
                         />
 
                         {errors.name && <p className="error">{errors.name}</p>}
@@ -51,14 +50,14 @@ function SignupForm  ({submitForm}){
 
                     <div className="id">
                         <label className="label">ID</label>
-                        <input 
-                        className="input" 
-                        type="text" 
-                        name="id" 
-                        placeholder="학번"
-                        value={values.id}
-                        ref={idRef}
-                        onChange={handleChange}
+                        <input
+                            className="input"
+                            type="text"
+                            name="id"
+                            placeholder="학번"
+                            value={values.id}
+                            ref={idRef}
+                            onChange={handleChange}
                         />
 
                         {errors.id && <p className="error">{errors.id}</p>}
@@ -66,12 +65,13 @@ function SignupForm  ({submitForm}){
 
                     <div className="Grade">
                         <label className="label">grade</label>
-                        <select 
-                        className="input"
-                        name="grade" 
-                        value={values.grade}
-                        ref={gradeRef}
-                        onChange={handleChange}>
+                        <select
+                            className="input"
+                            name="grade"
+                            value={values.grade}
+                            ref={gradeRef}
+                            onChange={handleChange}
+                        >
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -84,14 +84,14 @@ function SignupForm  ({submitForm}){
 
                     <div className="Password">
                         <label className="label">password</label>
-                        <input 
-                        className="input" 
-                        type="password"
-                        name="password" 
-                        placeholder="비밀번호"
-                        value={values.password}
-                        ref={passwordRef}
-                        onChange={handleChange}
+                        <input
+                            className="input"
+                            type="password"
+                            name="password"
+                            placeholder="비밀번호"
+                            value={values.password}
+                            ref={passwordRef}
+                            onChange={handleChange}
                         />
 
                         {errors.password && (
@@ -100,12 +100,22 @@ function SignupForm  ({submitForm}){
                     </div>
 
                     <div>
-                        <button className="submit" onClick={handleFormSubmit, submit}>Sign up</button>
+                        <button
+                            type="button"
+                            className="submit"
+                            onClick={(e) => {
+                                if (!handleFormSubmit(e)) {
+                                    submit();
+                                }
+                            }}
+                        >
+                            Sign up
+                        </button>
                     </div>
                 </form>
             </div>
         </div>
     );
-};
+}
 
 export default SignupForm;

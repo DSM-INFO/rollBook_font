@@ -23,6 +23,8 @@ const useForm = (submitForm) => {
         event.preventDefault();
         setErrors(Validation(values));
         setDataIsCorrect(true);
+
+        return Object.keys(errors).length;
     };
 
     useEffect(() => {
