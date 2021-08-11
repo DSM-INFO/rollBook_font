@@ -7,21 +7,26 @@ function LoginFrom() {
     const passwordRef = useRef("");
 
     const checkPasswordRule = () => {
-        // var check_spc = /[~!@#$%^&*()_+|<>?:{}()]/;
-        var check_spc = /^[A-Za-z0-9+]*$/;
+        const check_spc = /^[A-Za-z0-9+]*$/;
 
-        return !check_spc.test(passwordRef.current.value);
+        const Allow =
+            !check_spc.test(passwordRef.current.value) ||
+            !check_spc.test(idRef.current.value);
+
+        if (Allow) {
+            alert(`error : 특수문자는 사용 하실 수 없습니다`);
+
+            idRef.current.value = "";
+            passwordRef.current.value = "";
+        }
+        return Allow;
     };
 
     const submit = () => {
         if (checkPasswordRule()) {
-            alert(`error : 특수문자는 사용 하실 수 없습니다`);
-            passwordRef.current.value = "";
-            idRef.current.value = "";
             return null;
-        } else {
-            console.log(`ok`);
         }
+
         const res = axios
             .post("https://rollbook.kro.kr:4093/admin/login", {
                 id: idRef.current.value,
