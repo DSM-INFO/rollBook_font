@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Validation from "./Validation";
 
 const useForm = (submitForm) => {
@@ -24,14 +24,18 @@ const useForm = (submitForm) => {
         setErrors(Validation(values));
         setDataIsCorrect(true);
 
-        return Object.keys(errors).length;
-    };
-
-    useEffect(() => {
         if (Object.keys(errors).length === 0 && dataIsCorrect) {
             submitForm(true);
         }
-    }, [errors]);
+
+        return Object.keys(errors).length;
+    };
+
+    // useEffect(() => {
+    //     if (Object.keys(errors).length === 0 && dataIsCorrect) {
+    //         submitForm(true);
+    //     }
+    // }, [errors]);
 
     return { handleChange, handleFormSubmit, errors, values };
 };
