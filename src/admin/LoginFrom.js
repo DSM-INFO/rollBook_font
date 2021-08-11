@@ -3,17 +3,31 @@ import axios from "axios";
 import "./login.css";
 
 function LoginFrom() {
-    const idRef = useRef();
-    const passwordRef = useRef();
+    const idRef = useRef("");
+    const passwordRef = useRef("");
+
+    const checkPasswordRule = () => {
+        var check_spc = /[~!@#$%^&*()_+|<>?:{}()]/;
+        return check_spc.test(passwordRef.current.value);
+    };
 
     const submit = () => {
+        if (checkPasswordRule()) {
+            alert(`error : 특수문자는 사용 하실 수 없습니다`);
+            passwordRef.current.value = "";
+            idRef.current.value = "";
+            return null;
+        } else {
+            console.log(`ok`);
+        }
         const res = axios
             .post("https://rollbook.kro.kr:4093/admin/login", {
                 id: idRef.current.value,
                 password: passwordRef.current.value,
             })
             .then((res) => {
-                console.log(res);
+                const token = res.data.access_token;
+                console.log(token);
             });
         console.log(`res = ${res}`);
     };
