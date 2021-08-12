@@ -65,6 +65,11 @@ const App = () => {
                             path="/admin/login"
                             component={LoginForm}
                         />
+                        <Route
+                            exact
+                            path="/admin/showList"
+                            component={ShowSchedule}
+                        />
                         <Route path="*" component={EmptyPage} />
                     </Switch>
                 </Route>
