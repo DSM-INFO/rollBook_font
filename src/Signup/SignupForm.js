@@ -104,14 +104,8 @@ function SignupForm({ submitForm }) {
                                 if (!handleFormSubmit(e)) {
                                     submit();
                                 }
-<<<<<<< HEAD
-                            }}>
-                            signUp
-                            </button>
-=======
                             }}
                         />
->>>>>>> 0754529612ddfff18b6702ad425a4a609d4c6461
                     </div>
                 </form>
             </div>
