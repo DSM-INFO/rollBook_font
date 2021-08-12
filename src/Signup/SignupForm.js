@@ -98,14 +98,11 @@ function SignupForm ({submitForm}){
                             <p className="error">{errors.password}</p>
                         }
                     </div>
-
-                        
-
-
                     <div>
                         <button
                             type="button"
                             className="submit"
+                            
                             onClick={(e) => {
                                 if (!handleFormSubmit(e)) {
                                     submit();
