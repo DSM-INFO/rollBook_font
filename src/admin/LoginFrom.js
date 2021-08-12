@@ -1,19 +1,31 @@
 import React, { useRef } from "react";
 import axios from "axios";
 import "./login.css";
+import useCheckRule from "../hook/useCheckRule";
 
 function LoginFrom() {
-    const idRef = useRef();
-    const passwordRef = useRef();
+    const idRef = useRef("");
+    const passwordRef = useRef("");
+    const { CheckRule } = useCheckRule();
 
     const submit = () => {
+        const id = idRef.current.value;
+        const password = passwordRef.current.value;
+
+        if (CheckRule(id, password)) {
+            idRef.current.value = "";
+            passwordRef.current.value = "";
+            return null;
+        }
+
         const res = axios
             .post("https://rollbook.kro.kr:4093/admin/login", {
                 id: idRef.current.value,
                 password: passwordRef.current.value,
             })
             .then((res) => {
-                console.log(res);
+                const token = res.data.access_token;
+                console.log(token);
             });
         console.log(`res = ${res}`);
     };
