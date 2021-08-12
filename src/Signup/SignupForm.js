@@ -102,13 +102,13 @@ function SignupForm ({submitForm}){
                         <button
                             type="button"
                             className="submit"
-                            
                             onClick={(e) => {
                                 if (!handleFormSubmit(e)) {
                                     submit();
                                 }
-                            }}
-                       />
+                            }}>
+                            signUp
+                            </button>
                     </div>
                 </form>
             </div>
