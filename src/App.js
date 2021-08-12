@@ -49,10 +49,10 @@ const App = () => {
                     <Switch>
                         <Route exact path="/admin/" component={MainScreen} />
 
-                        <Route exact path="/user/rollShow" component={RollS} />
+                        <Route exact path="/admin/rollShow" component={RollS} />
                         <Route
                             exact
-                            path="/user/rollShow:grade"
+                            path="/admin/rollShow:grade"
                             component={RollG}
                         />
                         <Route

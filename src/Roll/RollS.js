@@ -1,25 +1,19 @@
 import { Link } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 import "./RollS.css";
 
 const RollS = () => {
+    // const fetchData = async () => {
+    //     const res = await axios
+    //         .get("https://rollbook.kro.kr:4093/admin/:grade")
+    //         .then((res) => {
+    //             console.log(res);
+    //         });
 
-   
-    const fetchData = async () => {
-        const res = await axios
-        .get("https://rollbook.kro.kr:4093/admin/:grade", {
-            /*id: idRef.current.value,
-            name: nameRef.current.value,
-            grade: gradeRef.current.value,*/
-        })
-        .then((res) => {
-            console.log(res);
-        });
+    //     console.log(res);
+    // };
 
-        console.log(res);      
-    }
-
-    fetchData();
+    // fetchData();
 
     return (
         <div className="roll">
@@ -29,15 +23,15 @@ const RollS = () => {
                 </div>
 
                 <form className="btns">
-                    <Link className="uBtnS" to="/rollShow1">
+                    <Link className="uBtnS" to="/admin/rollShow1">
                         1학년
                     </Link>
 
-                    <Link className="uBtnS" to="/rollShow2">
+                    <Link className="uBtnS" to="/admin/rollShow2">
                         2학년
                     </Link>
 
-                    <Link className="uBtnS" to="/rollShow3">
+                    <Link className="uBtnS" to="/admin/rollShow3">
                         3학년
                     </Link>
                 </form>
