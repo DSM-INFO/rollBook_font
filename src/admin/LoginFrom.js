@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import axios from "axios";
 import "./login.css";
 import useCheckRule from "../hook/useCheckRule";
+import { getCookie, setCookie } from "../hook/useCookie";
 
 function LoginFrom() {
     const idRef = useRef("");
@@ -11,7 +12,6 @@ function LoginFrom() {
     const submit = () => {
         const id = idRef.current.value;
         const password = passwordRef.current.value;
-
         if (CheckRule(id, password)) {
             idRef.current.value = "";
             passwordRef.current.value = "";
@@ -25,9 +25,16 @@ function LoginFrom() {
             })
             .then((res) => {
                 const token = res.data.access_token;
-                console.log(token);
+
+                setCookie("access_token", token, {
+                    path: "/",
+                    serure: true,
+                    sameSite: false,
+                });
+                const a = getCookie("access_token");
+                console.log("token : ", a);
             });
-        console.log(`res = ${res}`);
+        // console.log(`res = ${res}`);
     };
 
     return (
