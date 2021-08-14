@@ -5,7 +5,7 @@ import "./RollS.css";
 
 const RollG = () => {
     const grade = useParams().grade;
-    const dummy = UseFetch(`https://neon-dev.kro.kr:5993/user/${grade}`);
+    const dummy = UseFetch(`https://neon-dev.kro.kr:5993/admin/${grade}`);
 
     const memberList = dummy.filter((data) => data.grade === Number(grade));
     return (

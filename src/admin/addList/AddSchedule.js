@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useRef, useState } from "react";
 import "../../css/index.css";
+import { getCookie } from "../../hook/useCookie";
 import "./AddSchedule.css";
 
 const AddSchedule = () => {
@@ -20,7 +21,9 @@ const AddSchedule = () => {
         setPlan("");
     };
 
-    const onSubmit = () => {
+    const onSubmit = async () => {
+        const token = `Bearer ${getCookie("access_token")}`;
+        console.log(`barer : ${token}`);
         if (!plan) {
             alert("일정을 작성해 주세요");
             return null;
@@ -29,8 +32,11 @@ const AddSchedule = () => {
         if (!isLoding) {
             setIsLoding(true);
 
-            axios
+            await axios
                 .post(`https://neon-dev.kro.kr:5993/list/create`, {
+                    headers: {
+                        Authorization: token,
+                    },
                     title: "titleTest",
                     content: "contentTest",
                 })

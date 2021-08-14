@@ -4,6 +4,7 @@ import Plan from "./Plan";
 
 const ShowSchedule = () => {
     const planList = UseFetch(`https://neon-dev.kro.kr:5993/list`);
+    // const planList = [];
 
     return (
         <div className="showScheduleBackground">
