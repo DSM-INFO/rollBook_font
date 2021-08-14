@@ -10,7 +10,7 @@ function SignupForm({ submitForm }) {
 
     const submit = () => {
         const res = axios
-            .post("https://rollbook.kro.kr:4093/user/signup", {
+            .post("https://neon-dev.kro.kr:5993/user/signup", {
                 id: idRef.current.value,
                 password: passwordRef.current.value,
                 name: nameRef.current.value,
