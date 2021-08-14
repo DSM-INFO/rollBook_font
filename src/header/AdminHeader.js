@@ -4,14 +4,14 @@ import logo from "../img/infoIcon-admin.png";
 import { getCookie } from "../hook/useCookie";
 
 const AdminHeader = () => {
-    const token = getCookie(`access_token`);
-    console.log(`header print : ${token}`);
+    // const token = getCookie(`access_token`);
+    // console.log(`header print : ${token}`);
     return (
         <div className="header">
             <Link className="printToLogo" to="/admin">
                 <img src={logo} alt="infoIcon" />
             </Link>
-            <span style={{ color: "white" }}>{token}</span>
+            {/* <span style={{ color: "white" }}>{token}</span> */}
             <div className="tool">
                 <span className="lAndS_Button">
                     <Link to="/admin/login" className="loginAndSignup">

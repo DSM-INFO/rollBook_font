@@ -18,10 +18,14 @@ function ULoginForm() {
             return null;
         }
 
-        const res = axios.post("https://neon-dev.kro.kr:5993/user/login", {
-            id: idRef.current.value,
-            password: passwordRef.current.value,
-        });
+        const res = axios
+            .post("https://neon-dev.kro.kr:5993/user/login", {
+                id: idRef.current.value,
+                password: passwordRef.current.value,
+            })
+            .then((r) => {
+                console.log(`token : ${r.data.accessToken}`);
+            });
         console.log(res);
     };
 
