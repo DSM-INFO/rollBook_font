@@ -8,7 +8,7 @@ const Plan = ({ plan: p }) => {
     const Del = () => {
         if (window.confirm("삭제하시겠습니까?")) {
             axios
-                .delete(`https://rollbook.kro.kr:4093/list/delete/${plan.id}`)
+                .delete(`https://neon-dev.kro.kr:5993/list/delete/${plan.id}`)
                 .then((res) => {
                     setPlan({ id: 0 });
                 });

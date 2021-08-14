@@ -28,7 +28,7 @@ const RollCall = () => {
         }
         axios
             .patch(
-                `https://rollbook.kro.kr:4093/user/check/${idRef.current.value}`,
+                `https://neon-dev.kro.kr:5993/user/check/${idRef.current.value}`,
                 {
                     status: check,
                 }

@@ -3,7 +3,7 @@ import UseFetch from "../hook/UseFetch";
 import Plan from "./Plan";
 
 const ShowSchedule = () => {
-    const planList = UseFetch(`https://rollbook.kro.kr:4093/list`);
+    const planList = UseFetch(`https://neon-dev.kro.kr:5993/list`);
 
     return (
         <div className="showScheduleBackground">

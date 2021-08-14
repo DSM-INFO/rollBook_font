@@ -30,7 +30,7 @@ const AddSchedule = () => {
             setIsLoding(true);
 
             axios
-                .post(`https://rollbook.kro.kr:4093/list/create`, {
+                .post(`https://neon-dev.kro.kr:5993/list/create`, {
                     title: "titleTest",
                     content: "contentTest",
                 })
