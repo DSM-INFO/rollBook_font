@@ -13,6 +13,7 @@ import RollS from "./Roll/RollS";
 import RollG from "./Roll/RollG";
 import "./css/index.css";
 import LoginForm from "./admin/LoginFrom";
+import Login from "./Login";
 
 const App = () => {
     return (
@@ -63,7 +64,7 @@ const App = () => {
                         <Route
                             exact
                             path="/admin/login"
-                            component={LoginForm}
+                            component={Login}
                         />
                         <Route
                             exact
