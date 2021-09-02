@@ -65,15 +65,25 @@ function SignupForm({ submitForm }) {
 
           <div className="Grade">
             <label className="label">grade</label>
-            <input
+            {/* <input
               className="input"
-              type="number"
               placeholder="학년"
               name="grade"
               value={values.grade}
               ref={gradeRef}
               onChange={handleChange}
-            ></input>
+            ></input> */}
+            <select
+              className="input"
+              name="grade"
+              value={values.grade}
+              ref={gradeRef}
+              onChange={handleChange}
+            >
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+            </select>
 
             {errors.grade && <p className="error">{errors.grade}</p>}
           </div>
