@@ -1,23 +1,23 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import UseFetch from "../hook/UseFetch";
-import "./RollS.css";
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import UseFetch from '../hook/UseFetch';
+import './RollS.css';
 
 const RollG = () => {
-    const grade = useParams().grade;
-    const dummy = UseFetch(`https://neon-dev.kro.kr:5993/admin/${grade}`);
+  const grade = useParams().grade;
+  const dummy = UseFetch(`http://rollbook.kro.kr:4200/admin/${grade}`);
 
-    const memberList = dummy.filter((data) => data.grade === Number(grade));
-    return (
-        <div className="g1">
-            <div className="title">
-                <span>이름</span> <span>출석여부</span>
-            </div>
-            {memberList.map((data) => (
-                <p>{data.fullName}</p>
-            ))}
-        </div>
-    );
+  const memberList = dummy.filter((data) => data.grade === Number(grade));
+  return (
+    <div className="g1">
+      <div className="title">
+        <span>이름</span> <span>출석여부</span>
+      </div>
+      {memberList.map((data) => (
+        <p>{data.fullName}</p>
+      ))}
+    </div>
+  );
 };
 
 export default RollG;

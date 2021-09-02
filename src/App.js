@@ -13,7 +13,7 @@ import RollS from "./Roll/RollS";
 import RollG from "./Roll/RollG";
 import "./css/index.css";
 import LoginForm from "./admin/LoginFrom";
-import Login from "./Login";
+import Login from "./admin/adminLogin/Login";
 
 const App = () => {
     return (
