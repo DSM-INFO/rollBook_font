@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import './ShowList.css';
 
+// ShowSchedule.js에서 일정 목록의 각 내용들을 하나씩 받아온다
 const Plan = ({ plan: p }) => {
   const [plan, setPlan] = useState(p);
 

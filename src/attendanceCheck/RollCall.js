@@ -4,8 +4,13 @@ import UseChangeToNum from './UseChangeToNum';
 import axios from 'axios';
 
 const RollCall = () => {
+  //오늘 날짜
   const today = new Date();
+
+  // 추후 로그인된 유저의 이름이 들어갈 예정
   const memberList = ' /*이름*/  ';
+
+  //출석 사항
   const rollDetail = [
     '출석',
     '조퇴',
@@ -17,17 +22,21 @@ const RollCall = () => {
     '자격증 시험',
     '기타',
   ];
-  const idRef = useRef();
-  const detailRef = useRef();
+  const idRef = useRef(); // id
+  const detailRef = useRef(); // 출석사항
 
+  // 출석 체크
   const send = () => {
-    const check = UseChangeToNum(detailRef.current.value);
+    const check = UseChangeToNum(detailRef.current.value); // 출석사항에 매칭되는 숫자를 반환 받아 저장
+
+    // 매칭된 숫자가 없는 경우
     if (check === 0) {
       alert('erorr!!!');
       return null;
     }
     axios
       .patch(`hhttp://rollbook.kro.kr:4200/user/check/${idRef.current.value}`, {
+        //status의 숫자를 변경
         status: check,
       })
       .then((res) => {
