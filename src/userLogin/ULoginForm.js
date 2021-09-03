@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import axios from 'axios';
 import './ULogin.css';
 import useCheckRule from '../hook/useCheckRule';
@@ -7,6 +7,7 @@ function ULoginForm() {
   const idRef = useRef();
   const passwordRef = useRef();
   const { CheckRule } = useCheckRule();
+  const [isLogin, setIsLogin] = useState(false);
 
   const submit = () => {
     const id = idRef.current.value;
@@ -18,15 +19,24 @@ function ULoginForm() {
       return null;
     }
 
-    const res = axios
-      .post('http://rollbook.kro.kr:4200/user/login', {
-        id: idRef.current.value,
-        password: passwordRef.current.value,
-      })
-      .then((r) => {
-        console.log(`token : ${r.data.accessToken}`);
-      });
-    console.log(res);
+    if (!isLogin) {
+      setIsLogin(true);
+
+      const res = axios
+        .post('http://rollbook.kro.kr:4200/user/login', {
+          id: idRef.current.value,
+          password: passwordRef.current.value,
+        })
+        .then((r) => {
+          console.log(`token : ${r.data.accessToken}`);
+          setIsLogin(false);
+        })
+        .catch((err) => {
+          alert(`ID 혹은 password가 올바르지 않습니다`);
+          setIsLogin(false);
+        });
+      console.log(res);
+    }
   };
 
   return (
@@ -64,7 +74,7 @@ function ULoginForm() {
           <input
             className="uBtn"
             type="button"
-            value="LOGIN"
+            value={!isLogin ? 'LOGIN' : 'LODING...'}
             onClick={submit}
           />
         </form>
