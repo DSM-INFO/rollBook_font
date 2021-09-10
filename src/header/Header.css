@@ -1,69 +1,69 @@
 .header {
-    background-color: #232323;
-    /* background-color: blueviolet; */
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    height: 6vh;
+  background-color: #232323;
+  /* background-color: blueviolet; */
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5vh;
+  height: 6vh;
 }
 
 .header img {
-    padding-left: 10px;
-    height: 90%;
-    /* background-color: blue; */
+  padding-left: 10px;
+  height: 90%;
+  /* background-color: blue; */
 }
 
 .header .tool {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .header .button {
-    /* background-color: red; */
-    margin-right: 20px;
-    color: white;
-    cursor: pointer;
-    text-decoration: none;
-    width: 100px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    font-size: 100%;
+  /* background-color: red; */
+  margin-right: 20px;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  width: 100px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 100%;
 }
 
 .header .button:hover {
-    font-size: 110%;
-    color: greenyellow;
+  font-size: 110%;
+  color: greenyellow;
 }
 
 .header .tool .lAndS_Button {
-    margin-right: 20px;
-    color: white;
-    cursor: pointer;
-    text-decoration: none;
-    width: 100px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    font-size: 100%;
+  margin-right: 20px;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  width: 100px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 100%;
 }
 
 .header .tool .lAndS_Button .loginAndSignup {
-    font-weight: bold;
-    font-size: 15px;
-    color: white;
-    cursor: pointer;
-    text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .header .tool .lAndS_Button .loginAndSignup:hover {
-    font-weight: bold;
-    font-size: 17px;
-    color: greenyellow;
-    cursor: pointer;
-    text-decoration: none;
+  font-weight: bold;
+  font-size: 17px;
+  color: greenyellow;
+  cursor: pointer;
+  text-decoration: none;
 }

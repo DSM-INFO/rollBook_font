@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { request } from '../hook/axios/axios';
+import * as S from './style';
 
 const Signup = () => {
   const [data, setData] = useState({
@@ -44,25 +45,28 @@ const Signup = () => {
   };
 
   return (
-    <div>
-      <section>
-        <label>이름</label>
-        <input onChange={nameChange} />
-      </section>
-      <section>
-        <label>학번</label>
-        <input onChange={gradeChange} />
-      </section>
-      <section>
-        <label>학년</label>
-        <input onChange={idChange} />
-      </section>
-      <section>
-        <label>비밀번호</label>
-        <input onChange={passWordChange} />
-      </section>
-      <button onClick={submit}>signup</button>
-    </div>
+    <S.SignUpPage>
+      <S.SignUpDisplay>
+        <S.SignUpTitle>sign up</S.SignUpTitle>
+        <section>
+          <S.SignUpInputInfo>name</S.SignUpInputInfo>
+          <S.SignUpInput onChange={nameChange} />
+        </section>
+        <section>
+          <S.SignUpInputInfo>grade</S.SignUpInputInfo>
+          <S.SignUpInput onChange={gradeChange} />
+        </section>
+        <section>
+          <S.SignUpInputInfo>id</S.SignUpInputInfo>
+          <S.SignUpInput onChange={idChange} />
+        </section>
+        <section>
+          <S.SignUpInputInfo>password</S.SignUpInputInfo>
+          <S.SignUpInput onChange={passWordChange} />
+        </section>
+        <button onClick={submit}>signup</button>
+      </S.SignUpDisplay>
+    </S.SignUpPage>
   );
 };
 
