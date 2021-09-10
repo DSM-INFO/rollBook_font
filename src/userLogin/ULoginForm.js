@@ -23,7 +23,7 @@ function ULoginForm() {
       setIsLogin(true);
 
       const res = axios
-        .post('http://rollbook.kro.kr:4200/user/login', {
+        .post('http://220.90.237.33:4200/user/login', {
           id: idRef.current.value,
           password: passwordRef.current.value,
         })
@@ -50,6 +50,7 @@ function ULoginForm() {
           <div className="ID">
             <label htmlFor="ID">id</label>
             <input
+              autoComplete="off"
               className="uInput"
               type="text"
               name="id"
