@@ -1,22 +1,51 @@
 import React, { useState } from 'react';
 import { request } from '../hook/axios/axios';
-import * as S from './style';
+import * as S from './style.js';
+import notShowImg from '../img/showPassword-off.png';
+import showImg from '../img/showPassword-on.png';
 
 const Signup = () => {
   const [data, setData] = useState({
     name: '',
     grade: '',
     id: '',
-    passWord: '',
+    password: '',
   });
 
-  const submit = async (e) => {
-    try {
-      await request('post', '/user/signup');
-    } catch {}
+  const [showPW, setShowPW] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
+  const { name, grade, id, password } = data;
+
+  const pwShowWhether = () => {
+    setShowPW(!showPW);
   };
 
-  const { name, grade, id, passWord } = data;
+  const submit = async (e) => {
+    if (!isLogin) {
+      setIsLogin(true);
+
+      try {
+        await request(
+          'post',
+          '/user/signup',
+          {
+            'Content-Type': 'application/json',
+          },
+          {
+            id: id,
+            name: name,
+            grade: Number(grade),
+            password: password,
+          },
+        );
+      } catch {
+        alert(`회원 가입에 실패했습니다\n(허용되지 않은 입력 혹은 중복된 ID)`);
+        console.error('user SignUp Error');
+      }
+
+      setIsLogin(false);
+    }
+  };
 
   const nameChange = (e) => {
     setData({
@@ -37,10 +66,10 @@ const Signup = () => {
       id: e.target.value,
     });
   };
-  const passWordChange = (e) => {
+  const passwordChange = (e) => {
     setData({
       ...data,
-      passWord: e.target.value,
+      password: e.target.value,
     });
   };
 
@@ -49,22 +78,46 @@ const Signup = () => {
       <S.SignUpDisplay>
         <S.SignUpTitle>sign up</S.SignUpTitle>
         <section>
-          <S.SignUpInputInfo>name</S.SignUpInputInfo>
-          <S.SignUpInput onChange={nameChange} />
+          <S.InputLine>
+            <S.SignUpInputInfo>name</S.SignUpInputInfo>
+            <S.SignUpInput onChange={nameChange} placeholder="이름" />
+          </S.InputLine>
         </section>
         <section>
-          <S.SignUpInputInfo>grade</S.SignUpInputInfo>
-          <S.SignUpInput onChange={gradeChange} />
+          <S.InputLine>
+            <S.SignUpInputInfo>grade</S.SignUpInputInfo>
+            <S.SignUpInput onChange={gradeChange} placeholder="학년" />
+          </S.InputLine>
         </section>
         <section>
           <S.SignUpInputInfo>id</S.SignUpInputInfo>
-          <S.SignUpInput onChange={idChange} />
+          <S.InputLine>
+            <S.SignUpInput
+              onChange={idChange}
+              maxLength="4"
+              value={id}
+              placeholder="학번"
+            />
+          </S.InputLine>
         </section>
         <section>
           <S.SignUpInputInfo>password</S.SignUpInputInfo>
-          <S.SignUpInput onChange={passWordChange} />
+          <S.pwInputLine>
+            <S.SignUpInput
+              onChange={passwordChange}
+              type={showPW ? 'text' : 'password'}
+              placeholder="비밀번호"
+            />
+            <S.ShowPasswordButton
+              onClick={pwShowWhether}
+              src={showPW ? showImg : notShowImg}
+              alt="show password"
+            />
+          </S.pwInputLine>
         </section>
-        <button onClick={submit}>signup</button>
+        <S.SignUpSubmitDiv>
+          <S.SignUpSubmitButton onClick={submit}>sign up</S.SignUpSubmitButton>
+        </S.SignUpSubmitDiv>
       </S.SignUpDisplay>
     </S.SignUpPage>
   );

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://rollbook.kro.kr:4200';
+const BASE_URL = 'http://220.90.237.33:4100';
 
 export const request = (method, url, headers, data) => {
   return axios({
