@@ -7,7 +7,7 @@ import showImg from '../img/showPassword-on.png';
 const Signup = () => {
   const [data, setData] = useState({
     name: '',
-    grade: '',
+    grade: 1,
     id: '',
     password: '',
   });
@@ -23,6 +23,8 @@ const Signup = () => {
   const submit = async (e) => {
     if (!isLogin) {
       setIsLogin(true);
+
+      console.log(grade);
 
       try {
         await request(
@@ -86,7 +88,12 @@ const Signup = () => {
         <section>
           <S.InputLine>
             <S.SignUpInputInfo>grade</S.SignUpInputInfo>
-            <S.SignUpInput onChange={gradeChange} placeholder="학년" />
+            {/* <S.SignUpInput onChange={gradeChange} placeholder="학년" /> */}
+            <S.GradeSelecter onChange={gradeChange}>
+              <S.GradeOption>1</S.GradeOption>
+              <S.GradeOption>2</S.GradeOption>
+              <S.GradeOption>3</S.GradeOption>
+            </S.GradeSelecter>
           </S.InputLine>
         </section>
         <section>

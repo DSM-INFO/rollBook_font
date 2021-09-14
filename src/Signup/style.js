@@ -49,9 +49,6 @@ export const SignUpInput = styled.input`
 export const InputLine = styled.div`
   width: 98%;
   border-bottom: black solid 1px;
-  ${({ Children }) => {
-    return <div>{Children};</div>;
-  }}
 `;
 
 export const pwInputLine = styled.div`
@@ -60,9 +57,6 @@ export const pwInputLine = styled.div`
   align-items: flex-end;
   padding-bottom: 3px;
   border-bottom: black solid 1px;
-  ${({ Children }) => {
-    return <div>{Children};</div>;
-  }}
 `;
 
 export const SignUpSubmitDiv = styled.div`
@@ -85,4 +79,26 @@ export const ShowPasswordButton = styled.img`
   width: 20px;
   height: 15px;
   cursor: pointer;
+`;
+
+export const GradeSelecter = styled.select`
+  background-color: white;
+  border: none;
+  width: 100%;
+  font-size: 20px;
+  margin-top: 5px;
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const GradeOption = styled.option`
+  /* background-color: red; */
+  &:hover {
+    background-color: red;
+  }
+
+  /* &:checked {
+    background-color: red;
+  } */
 `;
