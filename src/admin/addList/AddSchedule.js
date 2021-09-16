@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useRef, useState } from 'react';
 import '../../css/index.css';
 import { getCookie } from '../../hook/useCookie';
-import './AddSchedule.css';
+import * as S from './style.js';
 
 const AddSchedule = () => {
   // 일정 날짜 목록 -month
@@ -67,33 +67,31 @@ const AddSchedule = () => {
   };
 
   return (
-    <div className="blackBackground">
-      <div className="addToCenter">
-        <div className="addWindow">
-          <h1>일정 추가</h1>
-          <div className="input_area">
-            <label>날짜</label>
-            <select ref={monRef}>
-              {monthList.map((i) => (
-                <option key={i}>{i}</option>
-              ))}
-            </select>
-            <select ref={dayRef}>
-              {dayList.map((i) => (
-                <option key={i}>{i}</option>
-              ))}
-            </select>
-          </div>
-          <div className="input_area">
-            <label>일정</label>
-            <textarea onChange={planText} value={plan} />
-          </div>
-          <p onClick={onSubmit} className="inputSaveButton">
-            {isLoding ? 'saving...' : 'save'}
-          </p>
-        </div>
-      </div>
-    </div>
+    <S.AddSchedulePage>
+      <S.AddWindow>
+        <S.InputTitle>일정 추가</S.InputTitle>
+        <S.Input_Area>
+          <S.InputLabel>날짜</S.InputLabel>
+          <S.Select ref={monRef}>
+            {monthList.map((i) => (
+              <option key={i}>{i}</option>
+            ))}
+          </S.Select>
+          <S.Select ref={dayRef}>
+            {dayList.map((i) => (
+              <option key={i}>{i}</option>
+            ))}
+          </S.Select>
+        </S.Input_Area>
+        <S.Input_Area>
+          <S.InputLabel>일정</S.InputLabel>
+          <S.DedailText onChange={planText} value={plan} />
+        </S.Input_Area>
+        <S.InputSubmitButton onClick={onSubmit} className="inputSaveButton">
+          {isLoding ? 'saving...' : 'save'}
+        </S.InputSubmitButton>
+      </S.AddWindow>
+    </S.AddSchedulePage>
   );
 };
 

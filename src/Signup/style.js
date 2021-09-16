@@ -1,3 +1,4 @@
+import { rgba } from 'polished';
 import styled from 'styled-components';
 
 export const SignUpPage = styled.div`
@@ -37,6 +38,23 @@ export const SignUpInput = styled.input`
   width: 98%;
   margin-top: 5px;
   border: none;
+  &:focus {
+    outline: none;
+  }
+
+  ::placeholder {
+    font-size: 0.8em;
+  }
+`;
+
+export const pwInput = styled.input`
+  font-size: 20px;
+  padding-bottom: 3px;
+  width: 98%;
+  margin-top: 5px;
+  border: none;
+  color: ${({ type }) => type === 'text' && rgba(0, 0, 0, 0.3)};
+
   &:focus {
     outline: none;
   }
@@ -90,15 +108,4 @@ export const GradeSelecter = styled.select`
   &:focus {
     outline: none;
   }
-`;
-
-export const GradeOption = styled.option`
-  /* background-color: red; */
-  &:hover {
-    background-color: red;
-  }
-
-  /* &:checked {
-    background-color: red;
-  } */
 `;

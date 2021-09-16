@@ -88,11 +88,10 @@ const Signup = () => {
         <section>
           <S.InputLine>
             <S.SignUpInputInfo>grade</S.SignUpInputInfo>
-            {/* <S.SignUpInput onChange={gradeChange} placeholder="학년" /> */}
             <S.GradeSelecter onChange={gradeChange}>
-              <S.GradeOption>1</S.GradeOption>
-              <S.GradeOption>2</S.GradeOption>
-              <S.GradeOption>3</S.GradeOption>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
             </S.GradeSelecter>
           </S.InputLine>
         </section>
@@ -110,7 +109,7 @@ const Signup = () => {
         <section>
           <S.SignUpInputInfo>password</S.SignUpInputInfo>
           <S.pwInputLine>
-            <S.SignUpInput
+            <S.pwInput
               onChange={passwordChange}
               type={showPW ? 'text' : 'password'}
               placeholder="비밀번호"
