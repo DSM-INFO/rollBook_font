@@ -20,7 +20,6 @@ export const AddWindow = styled.div`
   border-image-slice: 1;
   height: 470px;
   width: 450px;
-  margin-top: 10vh;
 `;
 
 export const Input_Area = styled.section`
@@ -50,6 +49,9 @@ export const Select = styled.select`
   border: none;
   margin: 4px;
   background-color: white;
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const DedailText = styled.textarea`

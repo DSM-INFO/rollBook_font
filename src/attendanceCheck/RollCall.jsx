@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import './RollCall.css';
+import * as S from './style';
 import UseChangeToNum from './UseChangeToNum';
 import { request } from '../hook/axios/axios';
 
@@ -51,30 +51,26 @@ const RollCall = () => {
   };
 
   return (
-    <div className="blackBackground">
-      <div className="rollCallToCenter">
-        <div className="rollCallWindow">
-          <h1 className="printToday">
-            {today.getFullYear()}년 {today.getMonth() + 1}월 {today.getDate()}일
-            출석 여부
-          </h1>
+    <S.RollCallPage>
+      <S.RollCallWindow>
+        <S.PrintToday>
+          {today.getFullYear()}년{today.getMonth() + 1}월{today.getDate()}일
+          출석 여부
+        </S.PrintToday>
 
-          <div>
-            <span className="memberList" ref={idRef}>
-              {memberList}
-            </span>
-            <select className="memberList" ref={detailRef}>
-              {rollDetail.map((detail) => (
-                <option key={detail}>{detail}</option>
-              ))}
-            </select>
-            <button onClick={send} className="checkSendBetton">
-              send
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+        <section>
+          <S.SelecterOptionList />
+          <S.SelecterOptionList ref={detailRef}>
+            {rollDetail.map((detail) => (
+              <option key={detail}>{detail}</option>
+            ))}
+          </S.SelecterOptionList>
+          <S.CheckSendBetton onClick={send} className="checkSendBetton">
+            send
+          </S.CheckSendBetton>
+        </section>
+      </S.RollCallWindow>
+    </S.RollCallPage>
   );
 };
 

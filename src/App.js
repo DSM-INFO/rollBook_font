@@ -20,9 +20,9 @@ const App = () => {
         <Redirect exact from="/" to="/user" />
         <Route path="/user">
           <UserHeader />
+
           <Switch>
             <Route exact path="/user/" component={MainScreen} />
-
             <Route exact path="/user/login" component={ULoginForm} />
             <Route exact path="/user/showList" component={ShowSchedule} />
             <Route exact path="/user/rollCall" component={RollCall} />
@@ -39,7 +39,6 @@ const App = () => {
             <Route exact path="/admin/rollShow" component={RollS} />
             <Route exact path="/admin/rollShow:grade" component={RollG} />
             <Route exact path="/admin/addList" component={AddSchedule} />
-            {/* <Route exact path="/admin/login" component={Login} /> */}
             <Route exact path="/admin/showList" component={ShowSchedule} />
             <Route path="*" component={EmptyPage} />
           </Switch>
