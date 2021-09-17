@@ -11,7 +11,6 @@ import ULoginForm from './userLogin/ULoginForm';
 import RollS from './Roll/RollS';
 import RollG from './Roll/RollG';
 import './css/index.css';
-// import Login from './admin/adminLogin/Login';
 import Signup from './Signup/Signup';
 
 const App = () => {

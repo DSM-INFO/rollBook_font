@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import './RollCall.css';
 import UseChangeToNum from './UseChangeToNum';
-import axios from 'axios';
+import { request } from '../hook/axios/axios';
 
 const RollCall = () => {
   //오늘 날짜
@@ -22,30 +22,32 @@ const RollCall = () => {
     '자격증 시험',
     '기타',
   ];
+
   const idRef = useRef(); // id
   const detailRef = useRef(); // 출석사항
 
   // 출석 체크
   const send = () => {
-    const check = UseChangeToNum(detailRef.current.value); // 출석사항에 매칭되는 숫자를 반환 받아 저장
+    // 출석사항에 매칭되는 숫자를 반환 받아 저장
+    const check = UseChangeToNum(detailRef.current.value);
 
     // 매칭된 숫자가 없는 경우
     if (check === 0) {
       alert('erorr!!!');
       return null;
     }
-    axios
-      .patch(`hhttp://rollbook.kro.kr:4200/user/check/${idRef.current.value}`, {
-        //status의 숫자를 변경
-        status: check,
-      })
-      .then((res) => {
-        alert('출석체크 완료!');
-      })
-      .catch((err) => {
-        alert(`error!!!`);
-        return null;
-      });
+    try {
+      request(
+        'patch',
+        `/user/check/${idRef.current.value}`,
+        { 'Content-Type': 'application/json' },
+        { status: check },
+      );
+      alert('출석체크 완료!');
+    } catch {
+      alert(`error!!!`);
+      return null;
+    }
   };
 
   return (
