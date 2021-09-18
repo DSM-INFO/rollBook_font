@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react';
-import axios from 'axios';
-import './ULogin.css';
+// import './ULogin.css';
 import useCheckRule from '../hook/useCheckRule';
+import { request } from '../hook/axios/axios';
+import * as S from './style';
 
 function ULoginForm() {
   const idRef = useRef();
@@ -22,65 +23,57 @@ function ULoginForm() {
     if (!isLogin) {
       setIsLogin(true);
 
-      const res = axios
-        .post('http://220.90.237.33:4100/user/login', {
-          id: idRef.current.value,
-          password: passwordRef.current.value,
-        })
-        .then((r) => {
-          console.log(`token : ${r.data.accessToken}`);
-          setIsLogin(false);
-        })
-        .catch((err) => {
-          alert(`ID 혹은 password가 올바르지 않습니다`);
-          setIsLogin(false);
-        });
-      console.log(res);
+      try {
+        request(
+          'post',
+          '/user/login',
+          {
+            'Content-Type': 'application/json',
+          },
+          {
+            id: Number(idRef.current.value),
+            password: Number(passwordRef.current.value),
+          },
+        );
+        setIsLogin(false);
+      } catch {
+        alert(`ID 혹은 password가 올바르지 않습니다`);
+        setIsLogin(false);
+      }
     }
   };
 
   return (
-    <form className="uSubmit">
-      <div className="uForm-inner">
-        <div>
-          <h2 className="uTitle">Login</h2>
-        </div>
+    <S.UserLoginPage>
+      <S.ULoginWindow>
+        <S.Title>Login</S.Title>
 
-        <form className="uForm-group">
-          <div className="ID">
-            <label htmlFor="ID">id</label>
-            <input
+        <article>
+          <S.ID>
+            <label>id</label>
+            <S.LoginInput
               autoComplete="off"
-              className="uInput"
               type="text"
-              name="id"
-              id="id"
               placeholder="학번"
               ref={idRef}
             />
-          </div>
+          </S.ID>
 
-          <div className="password">
-            <label htmlFor="password">password</label>
-            <input
-              className="uInput"
+          <S.Password>
+            <label>password</label>
+            <S.LoginInput
               type="password"
-              name="Password"
-              id="password"
               ref={passwordRef}
               placeholder="비밀번호"
             />
-          </div>
+          </S.Password>
 
-          <input
-            className="uBtn"
-            type="button"
-            value={!isLogin ? 'LOGIN' : 'LODING...'}
-            onClick={submit}
-          />
-        </form>
-      </div>
-    </form>
+          <S.SubmitButton type="button" onClick={submit}>
+            {!isLogin ? 'LOGIN' : 'LODING...'}
+          </S.SubmitButton>
+        </article>
+      </S.ULoginWindow>
+    </S.UserLoginPage>
   );
 }
 
