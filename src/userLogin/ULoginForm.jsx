@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import useCheckRule from '../hook/useCheckRule';
 import { request } from '../hook/axios/axios';
 import * as S from './style';
@@ -6,8 +6,8 @@ import notShow from '../img/showPassword-off.png';
 import Show from '../img/showPassword-on.png';
 
 function ULoginForm() {
-  const idRef = useRef();
-  const passwordRef = useRef();
+  const [id, setId] = useState('');
+  const [PW, setPW] = useState('');
   const { CheckRule } = useCheckRule();
   const [isLogin, setIsLogin] = useState(false);
   const [showPW, setShowPW] = useState(false);
@@ -17,12 +17,9 @@ function ULoginForm() {
   };
 
   const submit = () => {
-    const id = idRef.current.value;
-    const password = passwordRef.current.value;
-
-    if (CheckRule(id, password)) {
-      idRef.current.value = '';
-      passwordRef.current.value = '';
+    if (CheckRule(id, PW)) {
+      setId('');
+      setPW('');
       return null;
     }
 
@@ -37,8 +34,8 @@ function ULoginForm() {
             'Content-Type': 'application/json',
           },
           {
-            id: Number(idRef.current.value),
-            password: Number(passwordRef.current.value),
+            id: String(id),
+            password: String(PW),
           },
         );
         setIsLogin(false);
@@ -49,6 +46,14 @@ function ULoginForm() {
     }
   };
 
+  const changeID = (e) => {
+    setId(e.target.value);
+  };
+
+  const changePW = (e) => {
+    setPW(e.target.value);
+  };
+
   return (
     <S.UserLoginPage>
       <S.ULoginWindow>
@@ -56,21 +61,21 @@ function ULoginForm() {
 
         <article>
           <S.ID>
-            <label>id</label>
+            <S.SubTitle>id</S.SubTitle>
             <S.LoginInput
               autoComplete="off"
               type="text"
               placeholder="학번"
-              ref={idRef}
+              onChange={changeID}
             />
           </S.ID>
 
           <S.Password>
-            <label>password</label>
+            <S.SubTitle>password</S.SubTitle>
             <S.Inline>
               <S.LoginInput
                 type={showPW ? 'text' : 'password'}
-                ref={passwordRef}
+                onChange={changePW}
                 placeholder="비밀번호"
               />
               <S.ShowPasswordButton
