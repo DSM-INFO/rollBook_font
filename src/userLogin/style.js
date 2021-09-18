@@ -25,14 +25,16 @@ export const Title = styled.h2`
 `;
 
 export const ID = styled.section`
-  margin: 20px;
+  margin-bottom: 30px;
+  margin-top: 30px;
   color: #969292;
   font-size: 16px;
   border-bottom: 2px solid black;
 `;
 
 export const Password = styled.section`
-  margin: 20px;
+  margin-bottom: 30px;
+  margin-top: 30px;
   color: #969292;
   font-size: 16px;
   margin-bottom: 100px;
@@ -45,7 +47,8 @@ export const LoginInput = styled.input`
   outline: none;
   width: 98%;
   border: none;
-  margin-bottom: 10px;
+
+  color: ${({ type }) => type === 'text' && rgb(0, 0, 0)};
 `;
 
 export const SubmitButton = styled.button`
@@ -60,4 +63,15 @@ export const SubmitButton = styled.button`
   outline: none;
   cursor: pointer;
   transition: all 0.1s;
+`;
+
+export const ShowPasswordButton = styled.img`
+  width: 20px;
+  height: 15px;
+  cursor: pointer;
+`;
+
+export const Inline = styled.div`
+  display: flex;
+  align-items: center;
 `;
