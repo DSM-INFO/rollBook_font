@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import './Header.css';
 import logo from '../img/infoIcon.png';
 import * as S from './style';
 
@@ -12,11 +11,11 @@ const UserHeader = () => {
       <S.Tool>
         <S.LoginAndSignup>
           <Link to="/user/login">
-            <S.Button>Login</S.Button>
+            <S.LoginAndSignupButton>Login</S.LoginAndSignupButton>
           </Link>
           &nbsp;|&nbsp;
           <Link to="/user/signup">
-            <S.Button>Signup</S.Button>
+            <S.LoginAndSignupButton>Signup</S.LoginAndSignupButton>
           </Link>
         </S.LoginAndSignup>
         <Link to="/user/rollCall">

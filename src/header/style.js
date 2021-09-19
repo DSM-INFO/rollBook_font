@@ -32,7 +32,7 @@ export const LoginAndSignup = styled.span`
   font-size: 100%;
 `;
 
-export const Button = styled.p`
+export const LoginAndSignupButton = styled.p`
   font-weight: bold;
   font-size: 15px;
   color: white;
@@ -51,7 +51,7 @@ export const NavButton = styled.p`
   color: white;
   cursor: pointer;
   text-decoration: none;
-  margin-right: 20px;
+  margin-right: 40px;
 
   &:hover {
     font-size: 1.1em;

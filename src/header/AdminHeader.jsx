@@ -1,30 +1,30 @@
 import { Link } from 'react-router-dom';
-import './Header.css';
 import logo from '../img/infoIcon-admin.png';
+import * as S from './style';
 
 const AdminHeader = () => {
   return (
-    <div className="header">
-      <Link className="printToLogo" to="/admin">
-        <img src={logo} alt="infoIcon" />
+    <S.Header>
+      <Link to="/admin">
+        <S.MainLogo src={logo} alt="infoIcon" />
       </Link>
-      <div className="tool">
-        <span className="lAndS_Button">
+      <S.Tool>
+        <S.LoginAndSignup>
           <Link to="/admin/login" className="loginAndSignup">
-            Login
+            <S.LoginAndSignupButton>Login</S.LoginAndSignupButton>
           </Link>
-        </span>
+        </S.LoginAndSignup>
         <Link className="button" to="/admin/rollShow">
-          출석 현황
+          <S.NavButton>출석 현황</S.NavButton>
         </Link>
         <Link className="button" to="/admin/addList">
-          일정 추가
+          <S.NavButton>일정 추가</S.NavButton>
         </Link>
         <Link className="button" to="/admin/showList">
-          일정 목록
+          <S.NavButton>일정 목록</S.NavButton>
         </Link>
-      </div>
-    </div>
+      </S.Tool>
+    </S.Header>
   );
 };
 
