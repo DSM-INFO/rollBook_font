@@ -8,9 +8,9 @@ import RollCall from './attendanceCheck/RollCall';
 import UserHeader from './header/UserHeader';
 import AdminHeader from './header/AdminHeader';
 import Login from './Login/Login';
-import RollS from './Roll/RollS';
-import RollG from './Roll/RollG';
-import './css/index.css';
+import RollS from './admin/Roll/RollS';
+import RollG from './admin/Roll/RollG';
+import './index.css';
 import Signup from './Signup/Signup';
 
 const App = () => {

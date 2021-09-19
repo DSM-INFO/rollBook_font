@@ -9,7 +9,7 @@ export const AddSchedulePage = styled.div`
 `;
 
 export const AddWindow = styled.div`
-  background-color: whitesmoke;
+  background-color: white;
 
   border: 10px solid;
   border-image: linear-gradient(
@@ -18,58 +18,70 @@ export const AddWindow = styled.div`
     rgb(218, 155, 255)
   );
   border-image-slice: 1;
-  height: 470px;
-  width: 450px;
+  padding: 10px;
+  /* height: 470px; */
+  /* width: 450px; */
 `;
 
 export const Input_Area = styled.section`
-  display: inline-block;
   margin: 20px;
   margin-top: 0px;
-  margin-bottom: 0px;
+  margin-bottom: 40px;
 `;
 
-export const InputTitle = styled.h1`
+export const WindowTitle = styled.h1`
   margin: 10px;
   margin-top: 20px;
+  margin-bottom: 30px;
   color: rgb(151, 232, 254);
 `;
 
 export const InputLabel = styled.label`
   color: rgb(164, 215, 254);
   display: block;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   font-weight: bold;
-`;
-
-export const Select = styled.select`
-  width: 196px;
-  height: 50px;
   font-size: 20px;
-  border: none;
-  margin: 4px;
-  background-color: white;
-  &:focus {
-    outline: none;
-  }
 `;
 
-export const DedailText = styled.textarea`
-  width: 400px;
-  height: 200px;
+export const TitleInput = styled.input`
   font-size: 25px;
+  width: 97%;
+  margin: 4px;
+  padding: 5px;
+  background-color: white;
+  border: none;
+  border-bottom: rgb(164, 215, 254) solid 2px;
+
+  outline: none;
+`;
+
+export const ContentInput = styled.textarea`
+  width: 400px;
+  height: 150px;
+  font-size: 25px;
+  border: rgb(164, 215, 254) solid 2px;
+  padding: 10px;
+  resize: none;
+  outline: none;
+`;
+
+export const Center = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const InputSubmitButton = styled.button`
-  width: 80px;
+  /* width: 80px; */
   cursor: pointer;
-  margin-top: 10px;
-  margin-left: 20px;
+  margin: 30px;
+  margin-top: 0px;
   background-color: whitesmoke;
   color: rgb(218, 155, 255);
   border-radius: 10px;
-  padding: 5px;
+  padding: 10px 20px 10px 20px;
   border: 3px solid rgb(218, 155, 255);
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 800;
 `;

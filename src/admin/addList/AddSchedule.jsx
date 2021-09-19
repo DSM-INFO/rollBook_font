@@ -1,37 +1,22 @@
-import React, { useRef, useState } from 'react';
-import '../../css/index.css';
+import React, { useState } from 'react';
 import { requestWithToken } from '../../hook/axios/axios';
-// import { getCookie } from '../../hook/useCookie';
 import * as S from './style.js';
 
 const AddSchedule = () => {
-  // 일정 날짜 목록 -month
-  const monthList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-
-  // 일정 날짜 목록 -day
-  const dayList = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-    22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
-  ];
-
   const [isLoding, setIsLoding] = useState(false); //submit 상태 여부
-  const [plan, setPlan] = useState(''); //일정 상세 내역
-
-  const monRef = useRef(); // month 선택
-  const dayRef = useRef(); // day 선택
+  const [title, setTitle] = useState(''); // month 선택
+  const [content, setContent] = useState(''); // day 선택
 
   const resetText = () => {
-    setPlan('');
+    setTitle('');
+    setContent('');
   };
 
   // 입력한 정보를 서버로 post한다
   const onSubmit = async () => {
-    // const token = `Bearer ${getCookie('access_token')}`; // 저장된 토큰 가져오기
-    // console.log(`barer : ${token}`);
-
     //상세 일정이 비었다면?
-    if (!plan) {
-      alert('일정을 작성해 주세요');
+    if (!(title && content)) {
+      alert('제목과 내용을 모두 작성해 주세요');
       return null;
     }
 
@@ -46,8 +31,8 @@ const AddSchedule = () => {
           'admin',
           {},
           {
-            title: 'titleTest',
-            content: 'contentTest',
+            title: title,
+            content: content,
           },
         );
 
@@ -58,40 +43,34 @@ const AddSchedule = () => {
 
       setIsLoding(false); // submit 상태를 해제한다
       resetText(); // 입력한 일정 상세 내용을 화면에서 지운다
-
-      console.log(`end`);
     }
   };
 
-  const planText = (e) => {
-    // textarea로 입력 받은 내용을 useState에 저장한다
-    setPlan(e.target.value);
+  const changeTitle = (e) => {
+    setTitle(e.target.value);
+  };
+
+  const changeContent = (e) => {
+    setContent(e.target.value);
   };
 
   return (
     <S.AddSchedulePage>
       <S.AddWindow>
-        <S.InputTitle>일정 추가</S.InputTitle>
+        <S.WindowTitle>일정 추가</S.WindowTitle>
         <S.Input_Area>
-          <S.InputLabel>날짜</S.InputLabel>
-          <S.Select ref={monRef}>
-            {monthList.map((i) => (
-              <option key={i}>{i}</option>
-            ))}
-          </S.Select>
-          <S.Select ref={dayRef}>
-            {dayList.map((i) => (
-              <option key={i}>{i}</option>
-            ))}
-          </S.Select>
+          <S.InputLabel>제목</S.InputLabel>
+          <S.TitleInput onChange={changeTitle} value={title} />
         </S.Input_Area>
         <S.Input_Area>
-          <S.InputLabel>일정</S.InputLabel>
-          <S.DedailText onChange={planText} value={plan} />
+          <S.InputLabel>내용</S.InputLabel>
+          <S.ContentInput onChange={changeContent} value={content} />
         </S.Input_Area>
-        <S.InputSubmitButton onClick={onSubmit} className="inputSaveButton">
-          {isLoding ? 'saving...' : 'save'}
-        </S.InputSubmitButton>
+        <S.Center>
+          <S.InputSubmitButton onClick={onSubmit}>
+            {isLoding ? 'saving...' : 'save'}
+          </S.InputSubmitButton>
+        </S.Center>
       </S.AddWindow>
     </S.AddSchedulePage>
   );
