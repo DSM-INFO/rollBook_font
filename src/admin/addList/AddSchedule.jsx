@@ -1,6 +1,6 @@
-import axios from 'axios';
 import React, { useRef, useState } from 'react';
 import '../../css/index.css';
+import { requestWithToken } from '../../hook/axios/axios';
 // import { getCookie } from '../../hook/useCookie';
 import * as S from './style.js';
 
@@ -39,20 +39,21 @@ const AddSchedule = () => {
     if (!isLoding) {
       setIsLoding(true); // submit 상태로 변경
 
-      await axios
-        .post(`http://rollbook.kro.kr:4200/list/create`, {
-          headers: {
-            // Authorization: token,
+      try {
+        await requestWithToken(
+          'post',
+          '/list/create',
+          {},
+          {
+            title: 'titleTest',
+            content: 'contentTest',
           },
-          title: 'titleTest',
-          content: 'contentTest',
-        })
-        .then((res) => {
-          alert('생성이 완료되었습니다');
-        })
-        .catch((error) => {
-          alert('erorr');
-        });
+        );
+
+        alert('성공적으로 생성되었습니다');
+      } catch {
+        alert('errer!!');
+      }
 
       setIsLoding(false); // submit 상태를 해제한다
       resetText(); // 입력한 일정 상세 내용을 화면에서 지운다

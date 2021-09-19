@@ -16,3 +16,25 @@ export const request = (method, url, headers, data) => {
       throw new Error(err);
     });
 };
+
+export const requestWithToken = (method, url, headers, data) => {
+  const access_Token = 'Bearer ' + localStorage.getItem('token');
+  return axios({
+    method,
+    url: BASE_URL + url,
+    headers: {
+      ...headers,
+      Authorization: access_Token,
+    },
+    data,
+  })
+    .then((res) => {
+      console.log('good');
+      console.log(res);
+      return res.data;
+    })
+    .catch((err) => {
+      console.log('catch');
+      throw new Error(err);
+    });
+};
