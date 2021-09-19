@@ -43,6 +43,7 @@ const AddSchedule = () => {
         await requestWithToken(
           'post',
           '/list/create',
+          'admin',
           {},
           {
             title: 'titleTest',

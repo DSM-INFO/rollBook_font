@@ -7,7 +7,7 @@ import ShowSchedule from './showDoList/ShowSchedule';
 import RollCall from './attendanceCheck/RollCall';
 import UserHeader from './header/UserHeader';
 import AdminHeader from './header/AdminHeader';
-import ULoginForm from './userLogin/ULoginForm';
+import Login from './Login/Login';
 import RollS from './Roll/RollS';
 import RollG from './Roll/RollG';
 import './css/index.css';
@@ -23,7 +23,9 @@ const App = () => {
 
           <Switch>
             <Route exact path="/user/" component={MainScreen} />
-            <Route exact path="/user/login" component={ULoginForm} />
+            <Route exact path="/user/login">
+              <Login target="user" />
+            </Route>
             <Route exact path="/user/showList" component={ShowSchedule} />
             <Route exact path="/user/rollCall" component={RollCall} />
             <Route exact path="/user/signup" component={Signup} />
@@ -40,6 +42,9 @@ const App = () => {
             <Route exact path="/admin/rollShow:grade" component={RollG} />
             <Route exact path="/admin/addList" component={AddSchedule} />
             <Route exact path="/admin/showList" component={ShowSchedule} />
+            <Route exact path="/admin/login">
+              <Login target="admin" />
+            </Route>
             <Route path="*" component={EmptyPage} />
           </Switch>
         </Route>

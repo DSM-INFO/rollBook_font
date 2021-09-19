@@ -5,12 +5,13 @@ import * as S from './style';
 import notShow from '../img/showPassword-off.png';
 import Show from '../img/showPassword-on.png';
 
-function ULoginForm() {
+const ULoginForm = ({ target }) => {
   const [id, setId] = useState('');
   const [PW, setPW] = useState('');
   const { CheckRule } = useCheckRule();
   const [isLogin, setIsLogin] = useState(false);
   const [showPW, setShowPW] = useState(false);
+  const tokenName = target === 'user' ? 'token' : 'adminToken';
 
   const pwShowWhether = () => {
     setShowPW(!showPW);
@@ -27,9 +28,10 @@ function ULoginForm() {
       setIsLogin(true);
 
       try {
+        console.log(target);
         const re = await request(
           'post',
-          '/user/login',
+          `/${target}/login`,
           {
             'Content-Type': 'application/json',
           },
@@ -39,7 +41,7 @@ function ULoginForm() {
           },
         );
         console.log(re.accseeToken);
-        localStorage.setItem('token', re.accseeToken);
+        localStorage.setItem(tokenName, re.accseeToken);
         setIsLogin(false);
       } catch {
         alert(`ID 혹은 password가 올바르지 않습니다`);
@@ -94,6 +96,6 @@ function ULoginForm() {
       </S.ULoginWindow>
     </S.UserLoginPage>
   );
-}
+};
 
 export default ULoginForm;

@@ -2,6 +2,11 @@ import axios from 'axios';
 
 const BASE_URL = 'http://220.90.237.33:4100';
 
+const targetToken = {
+  user: 'token',
+  admin: 'adminToken',
+};
+
 export const request = (method, url, headers, data) => {
   return axios({
     method,
@@ -17,8 +22,8 @@ export const request = (method, url, headers, data) => {
     });
 };
 
-export const requestWithToken = (method, url, headers, data) => {
-  const access_Token = 'Bearer ' + localStorage.getItem('token');
+export const requestWithToken = (method, url, target, headers, data) => {
+  const access_Token = 'Bearer ' + localStorage.getItem(targetToken[target]);
   return axios({
     method,
     url: BASE_URL + url,
