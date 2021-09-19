@@ -10,12 +10,9 @@ export const request = (method, url, headers, data) => {
     data,
   })
     .then((res) => {
-      console.log(res.data);
       return res.data;
     })
     .catch((err) => {
-      console.log(err);
-      console.log(data);
       throw new Error(err);
     });
 };

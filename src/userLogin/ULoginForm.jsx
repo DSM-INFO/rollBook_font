@@ -16,7 +16,7 @@ function ULoginForm() {
     setShowPW(!showPW);
   };
 
-  const submit = () => {
+  const submit = async () => {
     if (CheckRule(id, PW)) {
       setId('');
       setPW('');
@@ -27,7 +27,7 @@ function ULoginForm() {
       setIsLogin(true);
 
       try {
-        request(
+        const re = await request(
           'post',
           '/user/login',
           {
@@ -38,6 +38,8 @@ function ULoginForm() {
             password: String(PW),
           },
         );
+        console.log(re.accseeToken);
+        localStorage.setItem('token', re.accseeToken);
         setIsLogin(false);
       } catch {
         alert(`ID 혹은 password가 올바르지 않습니다`);
@@ -64,7 +66,6 @@ function ULoginForm() {
             <S.SubTitle>id</S.SubTitle>
             <S.LoginInput
               autoComplete="off"
-              type="text"
               placeholder="학번"
               onChange={changeID}
             />

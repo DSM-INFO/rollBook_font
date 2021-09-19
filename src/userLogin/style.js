@@ -1,3 +1,4 @@
+import { rgba } from 'polished';
 import styled from 'styled-components';
 
 export const UserLoginPage = styled.main`
@@ -48,6 +49,7 @@ export const LoginInput = styled.input`
   outline: none;
   width: 98%;
   border: none;
+  color: ${({ type }) => type === 'text' && rgba(0, 0, 0, 0.3)};
 `;
 
 export const SubmitButton = styled.button`

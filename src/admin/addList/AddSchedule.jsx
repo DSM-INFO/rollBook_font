@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useRef, useState } from 'react';
 import '../../css/index.css';
-import { getCookie } from '../../hook/useCookie';
+// import { getCookie } from '../../hook/useCookie';
 import * as S from './style.js';
 
 const AddSchedule = () => {
@@ -26,8 +26,8 @@ const AddSchedule = () => {
 
   // 입력한 정보를 서버로 post한다
   const onSubmit = async () => {
-    const token = `Bearer ${getCookie('access_token')}`; // 저장된 토큰 가져오기
-    console.log(`barer : ${token}`);
+    // const token = `Bearer ${getCookie('access_token')}`; // 저장된 토큰 가져오기
+    // console.log(`barer : ${token}`);
 
     //상세 일정이 비었다면?
     if (!plan) {
@@ -42,7 +42,7 @@ const AddSchedule = () => {
       await axios
         .post(`http://rollbook.kro.kr:4200/list/create`, {
           headers: {
-            Authorization: token,
+            // Authorization: token,
           },
           title: 'titleTest',
           content: 'contentTest',

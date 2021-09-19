@@ -8,7 +8,7 @@ const RollCall = () => {
   const today = new Date();
 
   // 추후 로그인된 유저의 이름이 들어갈 예정
-  const memberList = ' /*이름*/  ';
+  // const memberList = ' /*이름*/  ';
 
   //출석 사항
   const rollDetail = [
