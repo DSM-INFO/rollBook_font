@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { requestWithToken } from '../../hook/axios/axios';
 import './RollS.css';
 
-const RollG = () => {
+const Grades = () => {
   const grade = useParams().grade; // 출력할 학년을 url에서 찾아 저장한다 //grade===출력할 학년
   const dummy = requestWithToken(
     `get`,
@@ -27,4 +27,4 @@ const RollG = () => {
   );
 };
 
-export default RollG;
+export default Grades;
