@@ -1,7 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { requestWithToken } from '../../hook/axios/axios';
-import './RollS.css';
 
 const Grades = () => {
   const grade = useParams().grade; // 출력할 학년을 url에서 찾아 저장한다 //grade===출력할 학년

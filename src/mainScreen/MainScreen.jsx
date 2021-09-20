@@ -1,17 +1,20 @@
-import "./firstScreen.css";
-import infoLogo from "../img/infoIcon.png";
+import './firstScreen.css';
+import infoLogo from '../img/infoIcon.png';
+import * as S from './style';
 
 const MainScreen = () => {
-    return (
-        <div className="blackBackground">
-            <center>
-                <img src={infoLogo} className="img" alt="infoLogo" />
-            </center>
-            <center>
-                <p className="firstScreenText">Attendance Check System </p>
-            </center>
-        </div>
-    );
+  return (
+    <S.MainPage>
+      <article>
+        <S.Section>
+          <S.MainLogo src={infoLogo} alt="infoLogo" />
+        </S.Section>
+        <S.Section>
+          <S.MainText>Attendance Check System</S.MainText>
+        </S.Section>
+      </article>
+    </S.MainPage>
+  );
 };
 
 export default MainScreen;
