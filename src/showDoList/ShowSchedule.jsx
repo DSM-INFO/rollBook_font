@@ -12,11 +12,11 @@ const ShowSchedule = () => {
 
   return (
     <div className="showScheduleBackground">
-      {/* {planList.map((plan) => (
+      {planList.map((plan) => (
         <div className="centerShow">
           <Plan plan={plan} key={plan.id} />
         </div>
-      ))} */}
+      ))}
       <div className="showListMarginBottom" />
     </div>
   );

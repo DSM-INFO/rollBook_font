@@ -8,8 +8,8 @@ import RollCall from './attendanceCheck/RollCall';
 import UserHeader from './header/UserHeader';
 import AdminHeader from './header/AdminHeader';
 import Login from './Login/Login';
-import RollS from './admin/Roll/RollS';
-import RollG from './admin/Roll/RollG';
+import Grades from './admin/showAttendanceStatus./Grades';
+import AllGrades from './admin/showAttendanceStatus./AllGrades.';
 import './index.css';
 import Signup from './Signup/Signup';
 
@@ -38,8 +38,8 @@ const App = () => {
           <Switch>
             <Route exact path="/admin/" component={MainScreen} />
 
-            <Route exact path="/admin/rollShow" component={RollS} />
-            <Route exact path="/admin/rollShow:grade" component={RollG} />
+            <Route exact path="/admin/rollShow" component={Grades} />
+            <Route exact path="/admin/rollShow:grade" component={AllGrades} />
             <Route exact path="/admin/addList" component={AddSchedule} />
             <Route exact path="/admin/showList" component={ShowSchedule} />
             <Route exact path="/admin/login">
