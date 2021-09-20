@@ -1,4 +1,3 @@
-import './firstScreen.css';
 import infoLogo from '../img/infoIcon.png';
 import * as S from './style';
 
