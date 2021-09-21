@@ -40,8 +40,8 @@ const ULoginForm = ({ target }) => {
             password: String(PW),
           },
         );
-        console.log(re.accseeToken);
-        localStorage.setItem(tokenName, re.accseeToken);
+        console.log(re.accessToken);
+        localStorage.setItem(tokenName, re.accessToken);
         setIsLogin(false);
       } catch {
         alert(`ID 혹은 password가 올바르지 않습니다`);
