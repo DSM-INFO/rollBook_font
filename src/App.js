@@ -18,6 +18,7 @@ const App = () => {
     <BrowserRouter>
       <Switch>
         <Redirect exact from="/" to="/user" />
+
         <Route path="/user">
           <UserHeader />
 

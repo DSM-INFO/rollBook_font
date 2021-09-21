@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const UserLoginPage = styled.main`
   background: linear-gradient(to bottom right, #953dcf, #125caf);
   width: 100%;
-  min-height: 100vh;
+  min-height: 93vh;
   display: flex;
   justify-content: center;
   align-items: center;
