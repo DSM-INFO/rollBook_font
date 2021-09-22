@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import useCheckRule from '../hook/useCheckRule';
 import { request } from '../hook/axios/axios';
 import * as S from './style';
 import notShow from '../img/showPassword-off.png';
 import Show from '../img/showPassword-on.png';
+import checkRule from '../hook/checkRule';
 
 const ULoginForm = ({ target }) => {
   const [id, setId] = useState('');
   const [PW, setPW] = useState('');
-  const { CheckRule } = useCheckRule();
   const [isLogin, setIsLogin] = useState(false);
   const [showPW, setShowPW] = useState(false);
   const tokenName = target === 'user' ? 'token' : 'adminToken';
@@ -18,7 +17,7 @@ const ULoginForm = ({ target }) => {
   };
 
   const submit = async () => {
-    if (CheckRule(id, PW)) {
+    if (checkRule(id, PW)) {
       setId('');
       setPW('');
       return null;
