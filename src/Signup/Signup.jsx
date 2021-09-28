@@ -40,6 +40,8 @@ const Signup = () => {
             password: password,
           },
         );
+
+        alert(`환영합니다!`);
       } catch {
         alert(`회원 가입에 실패했습니다\n(허용되지 않은 입력 혹은 중복된 ID)`);
         console.error('user SignUp Error');

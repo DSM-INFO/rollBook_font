@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import UserStatus from './UserStatus';
 
+// all grade
 export const ShowRollPage = styled.main`
   background: linear-gradient(to bottom right, #953dcf, #125caf);
   width: 100%;
@@ -46,14 +46,23 @@ export const Title = styled.h2`
   margin: 80px 0px 80px 0px;
 `;
 
+//grade
 export const ShowStatus = styled.main`
   background-color: #232323;
   min-height: 93vh;
+`;
+
+export const Article = styled.article`
   display: grid;
+  padding: 30px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
 `;
 
 export const Status = styled.section`
+  background-color: #ffffff;
+`;
+
+export const Inline = styled.div`
   display: flex;
-  width: 20vw;
-  background-color: white;
 `;

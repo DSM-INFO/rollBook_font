@@ -27,11 +27,11 @@ const Grades = () => {
       <div className="title">
         <span>이름</span> <span>출석여부</span>
       </div>
-      {memberList.map((data) => (
-        <S.Status key={data.id}>
-          <UserStatus data={data} />
-        </S.Status>
-      ))}
+      <S.Article>
+        {memberList.map((data) => (
+          <UserStatus data={data} key={data.id} />
+        ))}
+      </S.Article>
     </S.ShowStatus>
   );
 };
