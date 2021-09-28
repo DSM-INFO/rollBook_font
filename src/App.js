@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import MainScreen from './mainScreen/MainScreen';
 import AddSchedule from './admin/addList/AddSchedule';
 import EmptyPage from './emptyPage/EmptyPage';
@@ -17,35 +17,36 @@ const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Redirect exact from="/" to="/user" />
-
-        <Route path="/user">
-          <UserHeader />
-
+        <Route path="/admin">
+          <AdminHeader />
           <Switch>
-            <Route exact path="/user/" component={MainScreen} />
-            <Route exact path="/user/login">
-              <Login target="user" />
+            <Route exact path="/admin/login">
+              <Login target="admin" />
             </Route>
-            <Route exact path="/user/showList" component={ShowSchedule} />
-            <Route exact path="/user/rollCall" component={RollCall} />
-            <Route exact path="/user/signup" component={Signup} />
+            <Route exact path="/admin/showList">
+              <ShowSchedule target="admin" />
+            </Route>
+            <Route exact path="/admin/" component={MainScreen} />
+            <Route exact path="/admin/rollShow" component={AllGrades} />
+            <Route exact path="/admin/rollShow:grade" component={Grades} />
+            <Route exact path="/admin/addList" component={AddSchedule} />
             <Route path="*" component={EmptyPage} />
           </Switch>
         </Route>
 
-        <Route path="/admin">
-          <AdminHeader />
-          <Switch>
-            <Route exact path="/admin/" component={MainScreen} />
+        <Route path="/">
+          <UserHeader />
 
-            <Route exact path="/admin/rollShow" component={AllGrades} />
-            <Route exact path="/admin/rollShow:grade" component={Grades} />
-            <Route exact path="/admin/addList" component={AddSchedule} />
-            <Route exact path="/admin/showList" component={ShowSchedule} />
-            <Route exact path="/admin/login">
-              <Login target="admin" />
+          <Switch>
+            <Route exact path="/login">
+              <Login target="user" />
             </Route>
+            <Route exact path="/showList">
+              <ShowSchedule target="user" />
+            </Route>
+            <Route exact path="/" component={MainScreen} />
+            <Route exact path="/rollCall" component={RollCall} />
+            <Route exact path="/signup" component={Signup} />
             <Route path="*" component={EmptyPage} />
           </Switch>
         </Route>

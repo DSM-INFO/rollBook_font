@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import UserStatus from './UserStatus';
 
 export const ShowRollPage = styled.main`
   background: linear-gradient(to bottom right, #953dcf, #125caf);
@@ -43,4 +44,16 @@ export const Title = styled.h2`
   color: #c4bbca;
   text-align: center;
   margin: 80px 0px 80px 0px;
+`;
+
+export const ShowStatus = styled.main`
+  background-color: #232323;
+  min-height: 93vh;
+  display: grid;
+`;
+
+export const Status = styled.section`
+  display: flex;
+  width: 20vw;
+  background-color: white;
 `;

@@ -3,7 +3,7 @@ import { requestWithToken } from '../hook/axios/axios';
 import Plan from './Plan';
 import * as S from './style';
 
-const ShowSchedule = () => {
+const ShowSchedule = ({ target }) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -13,7 +13,7 @@ const ShowSchedule = () => {
       })
       .catch((err) => {
         console.log(err);
-        alert('에러가 났습니다.');
+        alert('일정 목록을 불러올 수 없습니다.');
       });
   }, []);
 
@@ -22,7 +22,7 @@ const ShowSchedule = () => {
       {data.map((plan) => {
         return (
           <S.CenterShow key={plan.num}>
-            <Plan plan={plan} />
+            <Plan plan={plan} target={target} />
           </S.CenterShow>
         );
       })}

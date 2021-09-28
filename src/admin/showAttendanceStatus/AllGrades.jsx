@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import * as S from './style';
 
 const AllGrades = () => {
-  // rollShow:grade 형태로 grade는 학년을 의미한다.
   return (
     <S.ShowRollPage>
       <S.Wrapper>

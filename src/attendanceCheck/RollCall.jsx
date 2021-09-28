@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import * as S from './style';
-import UseChangeToNum from './UseChangeToNum';
+import UseChangeToNum from '../hook/UseChangeToNum';
 import { request } from '../hook/axios/axios';
 
 const RollCall = () => {

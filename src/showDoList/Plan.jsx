@@ -3,7 +3,7 @@ import { requestWithToken } from '../hook/axios/axios';
 import * as S from './style';
 
 // ShowSchedule.js에서 일정 목록의 각 내용들을 하나씩 받아온다
-const Plan = ({ plan: p }) => {
+const Plan = ({ plan: p, target }) => {
   const [plan, setPlan] = useState(p);
 
   const Del = () => {
@@ -29,9 +29,11 @@ const Plan = ({ plan: p }) => {
       <S.Content>
         <S.ContentText>{plan.content}</S.ContentText>
       </S.Content>
-      <S.DeleteBtn onClick={Del} className="">
-        Delete
-      </S.DeleteBtn>
+      {target === 'user' || (
+        <S.DeleteBtn onClick={Del} className="">
+          Delete
+        </S.DeleteBtn>
+      )}
     </S.Plan>
   );
 };

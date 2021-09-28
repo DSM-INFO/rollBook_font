@@ -10,18 +10,18 @@ const UserHeader = () => {
       </Link>
       <S.Tool>
         <S.LoginAndSignup>
-          <Link to="/user/login">
+          <Link to="/login">
             <S.LoginAndSignupButton>Login</S.LoginAndSignupButton>
           </Link>
           &nbsp;|&nbsp;
-          <Link to="/user/signup">
+          <Link to="/signup">
             <S.LoginAndSignupButton>Signup</S.LoginAndSignupButton>
           </Link>
         </S.LoginAndSignup>
-        <Link to="/user/rollCall">
+        <Link to="/rollCall">
           <S.NavButton>출석 체크</S.NavButton>
         </Link>
-        <Link to="/user/showList">
+        <Link to="/showList">
           <S.NavButton>일정 목록</S.NavButton>
         </Link>
       </S.Tool>
