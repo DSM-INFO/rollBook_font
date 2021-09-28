@@ -34,12 +34,9 @@ export const requestWithToken = (method, url, target, headers, data) => {
     data,
   })
     .then((res) => {
-      console.log('good');
-      console.log(res);
       return res.data;
     })
     .catch((err) => {
-      console.log('catch');
       throw new Error(err);
     });
 };

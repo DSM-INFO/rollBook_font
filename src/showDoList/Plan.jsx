@@ -1,6 +1,6 @@
-import axios from 'axios';
 import { useState } from 'react';
-import './ShowList.css';
+import { requestWithToken } from '../hook/axios/axios';
+import * as S from './style';
 
 // ShowSchedule.js에서 일정 목록의 각 내용들을 하나씩 받아온다
 const Plan = ({ plan: p }) => {
@@ -8,30 +8,31 @@ const Plan = ({ plan: p }) => {
 
   const Del = () => {
     if (window.confirm('삭제하시겠습니까?')) {
-      axios
-        .delete(`http://rollbook.kro.kr:4200/list/delete/${plan.id}`)
+      requestWithToken('delete', `/list/delete/${plan.num}`, 'admin', {}, {})
         .then((res) => {
-          setPlan({ id: 0 });
+          alert(`일정이 성공적으로 삭제되었습니다`);
+          setPlan({ num: 0 });
+        })
+        .catch((err) => {
+          alert('일정 삭제에 실패하였습니다');
         });
     }
   };
 
-  if (plan.id === 0) {
+  if (plan.num === 0) {
     return null;
   }
 
   return (
-    <div className="plan">
-      <p className="day">
-        {plan.mon}월 {plan.day}일
-      </p>
-      <div className="Detail">
-        <p className="word">{plan.plan}</p>
-      </div>
-      <button onClick={Del} className="deleteButton">
+    <S.Plan>
+      <S.Title>{plan.title}</S.Title>
+      <S.Content>
+        <S.ContentText>{plan.content}</S.ContentText>
+      </S.Content>
+      <S.DeleteBtn onClick={Del} className="">
         Delete
-      </button>
-    </div>
+      </S.DeleteBtn>
+    </S.Plan>
   );
 };
 
