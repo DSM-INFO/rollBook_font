@@ -18,6 +18,7 @@ export const request = (method, url, headers, data) => {
       return res.data;
     })
     .catch((err) => {
+      console.log(err);
       throw new Error(err);
     });
 };
@@ -37,6 +38,7 @@ export const requestWithToken = (method, url, target, headers, data) => {
       return res.data;
     })
     .catch((err) => {
+      console.log(err);
       throw new Error(err);
     });
 };

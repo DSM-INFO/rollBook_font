@@ -1,7 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import * as S from './style';
 import UseChangeToNum from '../hook/UseChangeToNum';
-import { request } from '../hook/axios/axios';
+import { request, requestWithToken } from '../hook/axios/axios';
 
 const RollCall = () => {
   //오늘 날짜
@@ -23,13 +23,13 @@ const RollCall = () => {
     '기타',
   ];
 
-  const idRef = useRef(); // id
-  const detailRef = useRef(); // 출석사항
+  const [id, setId] = useState(); // id
+  const [detail, setDetail] = useState(); // 출석사항
 
   // 출석 체크
   const send = () => {
     // 출석사항에 매칭되는 숫자를 반환 받아 저장
-    const check = UseChangeToNum(detailRef.current.value);
+    const check = UseChangeToNum(detail);
 
     // 매칭된 숫자가 없는 경우
     if (check === 0) {
@@ -37,10 +37,11 @@ const RollCall = () => {
       return null;
     }
     try {
-      request(
+      requestWithToken(
         'patch',
-        `/user/check/${idRef.current.value}`,
-        { 'Content-Type': 'application/json' },
+        `/user/check/${id}`,
+        'user',
+        {},
         { status: check },
       );
       alert('출석체크 완료!');
