@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as S from './style';
 import UseChangeToNum from '../hook/UseChangeToNum';
 import { requestWithToken } from '../hook/axios/axios';
@@ -22,9 +22,24 @@ const RollCall = () => {
     '자격증 시험',
     '기타',
   ];
+  const [uList, setUList] = useState([]);
+  const [id, setId] = useState(null); // id
+  const [detail, setDetail] = useState(''); // 출석사항
 
-  const [id, setId] = useState(); // id
-  const [detail, setDetail] = useState(); // 출석사항
+  useEffect(() => {
+    requestWithToken('get', '/admin', 'user', {}, {})
+      .then((res) => {
+        const list = res.map((data) => {
+          return data.name;
+        });
+        setUList(list);
+        console.log(uList);
+      })
+      .catch((err) => {
+        console.info(err);
+        alert(`출석 체크 내용을 불러올 수 업습니다`);
+      });
+  }, []);
 
   // 출석 체크
   const send = () => {
@@ -51,6 +66,11 @@ const RollCall = () => {
     }
   };
 
+  const changeId = (e) => {
+    setId(e.target.value);
+    console.log(id);
+  };
+
   const changeDetail = (e) => {
     setDetail(e.target.value);
     console.log(detail);
@@ -65,7 +85,11 @@ const RollCall = () => {
         </S.PrintToday>
 
         <section>
-          <S.SelecterOptionList />
+          <S.SelecterOptionList onChange={changeId}>
+            {uList.map((data) => (
+              <option key={data}>{data}</option>
+            ))}
+          </S.SelecterOptionList>
           <S.SelecterOptionList onChange={changeDetail}>
             {rollDetail.map((detail) => (
               <option key={detail}>{detail}</option>
