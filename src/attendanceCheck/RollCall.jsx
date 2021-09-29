@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import * as S from './style';
 import UseChangeToNum from '../hook/UseChangeToNum';
-import { request, requestWithToken } from '../hook/axios/axios';
+import { requestWithToken } from '../hook/axios/axios';
 
 const RollCall = () => {
   //오늘 날짜
@@ -51,6 +51,11 @@ const RollCall = () => {
     }
   };
 
+  const changeDetail = (e) => {
+    setDetail(e.target.value);
+    console.log(detail);
+  };
+
   return (
     <S.RollCallPage>
       <S.RollCallWindow>
@@ -61,7 +66,7 @@ const RollCall = () => {
 
         <section>
           <S.SelecterOptionList />
-          <S.SelecterOptionList ref={detailRef}>
+          <S.SelecterOptionList onChange={changeDetail}>
             {rollDetail.map((detail) => (
               <option key={detail}>{detail}</option>
             ))}
