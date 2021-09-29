@@ -7,7 +7,7 @@ const ShowSchedule = ({ target }) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    requestWithToken('get', '/list', 'user', {}, {})
+    requestWithToken('get', '/list', target, {}, {})
       .then((res) => {
         setData(res);
       })

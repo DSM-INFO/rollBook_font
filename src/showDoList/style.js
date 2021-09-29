@@ -19,14 +19,14 @@ export const Plan = styled.section`
   margin: 50px;
   margin-bottom: 0px;
   display: inline-block;
-  /* border: 0.2vw solid gray; */
+  border: 0.2vw solid gray;
   color: black;
   border: 5px solid;
-  border-image: linear-gradient(
+  /* border-image: linear-gradient(
     to bottom,
     rgb(151, 232, 254),
     rgb(218, 155, 255)
-  );
+  ); */
   border-image-slice: 1;
 `;
 
@@ -42,7 +42,7 @@ export const Content = styled.div`
   margin: 5px;
   width: 600px;
   background-color: white;
-  border: 2px solid rgb(218, 155, 255);
+  border: 2px solid black; //rgb(218, 155, 255);
 `;
 
 export const ContentText = styled.p`

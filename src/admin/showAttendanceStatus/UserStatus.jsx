@@ -9,7 +9,7 @@ const UserStatus = ({ data }) => {
       </S.Inline>
       <S.Inline>
         <span>상태 :&nbsp;</span>
-        <p>{data.grade}</p>
+        <p>{data.status ?? ''}</p>
       </S.Inline>
     </S.Status>
   );
