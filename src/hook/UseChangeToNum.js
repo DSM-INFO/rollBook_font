@@ -1,4 +1,4 @@
-const UseChangeToNum = (detail) => {
+export const UseChangeToNum = (detail) => {
   if (detail === '출석') {
     return 1;
   } else if (detail === '조퇴') {
@@ -21,5 +21,3 @@ const UseChangeToNum = (detail) => {
     return 0;
   }
 };
-
-export default UseChangeToNum;

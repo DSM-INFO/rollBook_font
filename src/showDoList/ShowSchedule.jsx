@@ -9,6 +9,7 @@ const ShowSchedule = ({ target }) => {
   useEffect(() => {
     requestWithToken('get', '/list', target, {}, {})
       .then((res) => {
+        console.log(res);
         setData(res);
       })
       .catch((err) => {

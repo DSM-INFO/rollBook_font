@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './style';
-import UseChangeToNum from '../hook/UseChangeToNum';
+import { UseChangeToNum } from '../hook/UseChangeToNum';
 import { requestWithToken } from '../hook/axios/axios';
 
 const RollCall = () => {
   //오늘 날짜
   const today = new Date();
-
-  // 추후 로그인된 유저의 이름이 들어갈 예정
-  // const memberList = ' /*이름*/  ';
 
   //출석 사항
   const rollDetail = [
@@ -24,16 +21,16 @@ const RollCall = () => {
   ];
   const [uList, setUList] = useState([]);
   const [id, setId] = useState(null); // id
-  const [detail, setDetail] = useState(''); // 출석사항
+  const [detail, setDetail] = useState('출석'); // 출석사항
 
   useEffect(() => {
     requestWithToken('get', '/admin', 'user', {}, {})
       .then((res) => {
         const list = res.map((data) => {
-          return data.name;
+          return data.id;
         });
+        setId(list[0]);
         setUList(list);
-        console.log(uList);
       })
       .catch((err) => {
         console.info(err);
@@ -48,7 +45,7 @@ const RollCall = () => {
 
     // 매칭된 숫자가 없는 경우
     if (check === 0) {
-      alert('erorr!!!');
+      alert(`erorr!!!`);
       return null;
     }
     try {
@@ -61,7 +58,8 @@ const RollCall = () => {
       );
       alert('출석체크 완료!');
     } catch {
-      alert(`error!!!`);
+      console.log('er');
+      alert(`err!!!`);
       return null;
     }
   };
